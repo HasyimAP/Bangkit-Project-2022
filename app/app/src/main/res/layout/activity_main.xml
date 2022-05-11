@@ -14,5 +14,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="-2dp"
         tools:layout_editor_absoluteY="2dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/food_list"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>
