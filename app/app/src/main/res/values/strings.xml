@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">FitVerse</string>
+    <string name="logo">logo</string>
+    <string name="title_login">Login to FitVerse</string>
+    <string name="message_login">Masukkan email dan password anda</string>
+    <string name="email">email</string>
+    <string name="password">password</string>
+    <string name="login">login</string>
+    <string name="copyright">copyright 2022 FitVerse</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="sign_up">Register</string>
+    <string name="title_register">Lengkapi data dirimu di bawah ini</string>
+    <string name="name">Nama</string>
+    <string name="register">Register</string>
 </resources>
