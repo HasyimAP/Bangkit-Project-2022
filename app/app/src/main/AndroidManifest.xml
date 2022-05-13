@@ -39,6 +39,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitVerse">
         <activity
+            android:name=".MainActivity2"
+            android:exported="false"
+            android:label="@string/title_activity_main2" />
+        <activity
+            android:name=".DashboardActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity
