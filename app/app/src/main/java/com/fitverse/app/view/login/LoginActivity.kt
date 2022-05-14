@@ -10,6 +10,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import com.fitverse.app.databinding.ActivityLoginBinding
+import com.fitverse.app.view.main.MainActivity
 import com.fitverse.app.view.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -24,6 +25,11 @@ class LoginActivity : AppCompatActivity() {
         binding.apply {
             Register.setOnClickListener{
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java).apply {
+                    startActivity(this)
+                })
+            }
+            loginButton.setOnClickListener{
+                startActivity(Intent(this@LoginActivity, MainActivity::class.java).apply {
                     startActivity(this)
                 })
             }
