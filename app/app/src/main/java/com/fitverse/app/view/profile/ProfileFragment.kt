@@ -1,19 +1,12 @@
 package com.fitverse.app.view.profile
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.fitverse.app.databinding.FragmentDashboardBinding
-import com.fitverse.app.databinding.FragmentHistoryBinding
+import com.fitverse.app.R
 import com.fitverse.app.databinding.FragmentProfileBinding
-import com.fitverse.app.view.comingSoon.ComingSoonActivity
-import com.fitverse.app.view.food.FoodListActivity
-import com.fitverse.app.view.food.ScanFoodActivity
-import com.fitverse.app.view.main.MainActivity
+
 
 class ProfileFragment : Fragment() {
 
@@ -34,6 +27,8 @@ class ProfileFragment : Fragment() {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
         return binding.root
+
+        setHasOptionsMenu(true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -45,5 +40,11 @@ class ProfileFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.setting,menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 }

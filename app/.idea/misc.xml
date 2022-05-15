@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1415" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_coming_soon.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_dashboard.xml" value="0.25263157894736843" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_food_list.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main2.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_history.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
         <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_profile.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/menu/setting.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.104" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_history.xml" value="0.104" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_home.xml" value="0.104" />
