@@ -159,7 +159,7 @@
         android:layout_height="64dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintGuide_percent="0.30191082"
+        app:layout_constraintGuide_end="510dp"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -189,6 +189,6 @@
         android:layout_width="wrap_content"
         android:layout_height="64dp"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_begin="73dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

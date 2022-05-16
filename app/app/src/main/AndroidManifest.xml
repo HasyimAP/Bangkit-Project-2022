@@ -39,9 +39,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitVerse">
         <activity
+            android:name=".view.ScanResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.settings.SettingsActivity"
             android:exported="false"
-            android:label="Settings"/>
+            android:label="Settings" />
         <activity
             android:name=".view.comingSoon.ComingSoonActivity"
             android:exported="false"
