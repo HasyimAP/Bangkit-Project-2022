@@ -39,17 +39,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitVerse">
         <activity
+            android:name=".view.settings.SettingsActivity"
+            android:exported="false"
+            android:label="Settings"/>
+        <activity
             android:name=".view.comingSoon.ComingSoonActivity"
             android:exported="false"
-            android:label="Coming Soon"/>
+            android:label="Coming Soon" />
         <activity
             android:name=".view.food.FoodListActivity"
             android:exported="false"
-            android:label="Food List"/>
+            android:label="Food List" />
         <activity
             android:name=".view.food.ScanFoodActivity"
             android:exported="false"
-            android:label="Scan Food Ingredient"/>
+            android:label="Scan Food Ingredient" />
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
@@ -66,6 +70,7 @@
         <activity
             android:name=".view.main.MainActivity"
             android:exported="false" />
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.fitverse.app"

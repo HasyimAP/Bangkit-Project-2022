@@ -13,4 +13,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="blueTheme">
+        <item name="android:background">@color/biru_muda</item>
+    </style>
+
+    <style name="recentScan">
+        <item name="android:textColor">@color/biru_muda</item>
+    </style>
 </resources>

@@ -13,7 +13,7 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:background="@color/biru_muda"
+        style="@style/blueTheme"
         android:text="@string/recent_scans" />
 
     <androidx.recyclerview.widget.RecyclerView

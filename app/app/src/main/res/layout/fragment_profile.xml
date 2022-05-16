@@ -9,27 +9,28 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal"
-        android:background="@color/biru_muda">
+        style="@style/blueTheme">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/avatar"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_gravity="center_vertical"
-            android:layout_marginLeft="30dp"
-            app:srcCompat="@drawable/ic_person" />
+            android:layout_marginStart="30dp"
+            app:srcCompat="@drawable/ic_profile"
+            android:contentDescription="@string/avatar"
+            app:tint="@color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:orientation="vertical"
-            android:background="@color/biru_muda">
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nama"
+                android:text="@string/nama"
                 android:textSize="25sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
@@ -40,7 +41,7 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Email"
+                android:text="@string/email"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"

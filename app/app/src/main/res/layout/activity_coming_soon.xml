@@ -8,15 +8,16 @@
 
     <TextView
         android:id="@+id/comingSoon"
+        style="@style/recentScan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/coming_soon"
-        android:textColor="@color/biru_muda"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.450"
         tools:layout_editor_absoluteX="0dp" />
 
     <ImageView

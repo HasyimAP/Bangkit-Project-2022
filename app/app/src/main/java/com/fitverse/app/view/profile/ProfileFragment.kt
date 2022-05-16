@@ -28,7 +28,7 @@ class ProfileFragment : Fragment() {
 
         return binding.root
 
-        setHasOptionsMenu(true)
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,8 +43,5 @@ class ProfileFragment : Fragment() {
     }
 
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.setting,menu)
-        super.onCreateOptionsMenu(menu, inflater)
-    }
+
 }
