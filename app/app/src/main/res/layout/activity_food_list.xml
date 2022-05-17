@@ -6,4 +6,25 @@
     android:layout_height="match_parent"
     tools:context=".view.food.FoodListActivity">
 
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/biru_muda"
+        tools:ignore="MissingConstraints">
+
+
+    </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        app:layout_constraintTop_toBottomOf="@+id/frameLayout"
+        tools:layout_editor_absoluteX="0dp"
+        tools:listitem="@layout/item_list" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
