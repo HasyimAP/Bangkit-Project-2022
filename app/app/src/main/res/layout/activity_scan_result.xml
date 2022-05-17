@@ -10,10 +10,10 @@
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
         android:layout_height="232dp"
+        android:contentDescription="image"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp"
-        tools:srcCompat="@drawable/latar" />
+        tools:srcCompat="@drawable/image_result" />
 
     <TextView
         android:id="@+id/textView3"
@@ -58,18 +58,6 @@
         app:layout_constraintGuide_percent="0.96"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        app:layout_constraintEnd_toStartOf="@+id/guidelineVertical1"
-        app:srcCompat="@drawable/food_scan_white"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteY="639dp"
-        android:backgroundTint="@color/biru_muda"
-        android:focusable="true" />
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineHorizontal"
         android:layout_width="wrap_content"
@@ -91,4 +79,13 @@
         tools:layout_editor_absoluteX="355dp"
         tools:layout_editor_absoluteY="16dp"
         tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/scan_food_float"
+        tools:layout_editor_absoluteX="319dp"
+        tools:layout_editor_absoluteY="638dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.fitverse.app.view
+package com.fitverse.app.view.scanResult
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
