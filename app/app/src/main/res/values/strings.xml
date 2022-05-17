@@ -30,4 +30,6 @@
     <string name="avatar">Avatar</string>
     <string name="nama">Nama</string>
     <string name="tes">Lorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sit</string>
+    <string name="bookmark_colection">Bookmark collection</string>
+    <string name="scan_favorite">Scan Favorite</string>
 </resources>

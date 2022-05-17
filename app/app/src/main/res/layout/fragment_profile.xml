@@ -30,25 +30,56 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/nama"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="65dp"
-                android:layout_marginStart="20dp"/>
+                android:text="@string/nama"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/email"
-                android:textSize="15sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:gravity="center_vertical"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginStart="20dp"/>
+                android:gravity="center_vertical"
+                android:text="@string/email"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
 
         </LinearLayout>
     </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/scan_food_button"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="20dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="5dp">
+
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"
+            android:contentDescription="@string/bookmark_colection"
+            app:srcCompat="@drawable/ic_collections_bookmark" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="60dp"
+            android:text="@string/scan_favorite"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+    </androidx.cardview.widget.CardView>
 </LinearLayout>

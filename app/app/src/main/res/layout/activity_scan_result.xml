@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/latar" />
 
     <TextView
         android:id="@+id/textView3"
@@ -78,4 +78,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintGuide_percent="0.95"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ToggleButton
+        android:id="@+id/toggleFavorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/save_scan"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textOff=" "
+        android:textOn=" "
+        tools:layout_editor_absoluteX="355dp"
+        tools:layout_editor_absoluteY="16dp"
+        tools:ignore="MissingConstraints" />
 </androidx.constraintlayout.widget.ConstraintLayout>
