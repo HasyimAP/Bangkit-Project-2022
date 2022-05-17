@@ -32,4 +32,9 @@
     <string name="tes">Lorem ipsum dolor sit Lorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sitLorem ipsum dolor sit</string>
     <string name="bookmark_colection">Bookmark collection</string>
     <string name="scan_favorite">Scan Favorite</string>
+    <string name="search">Search...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_text_1">Food</string>
+    <string name="tab_text_2">Fitness</string>
 </resources>

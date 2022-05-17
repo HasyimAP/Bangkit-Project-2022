@@ -54,7 +54,7 @@
     </LinearLayout>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/scan_food_button"
+        android:id="@+id/fav_button"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="20dp"

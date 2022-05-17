@@ -1,11 +1,14 @@
 package com.fitverse.app.view.profile
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.R
 import com.fitverse.app.databinding.FragmentProfileBinding
+import com.fitverse.app.view.food.ScanFoodActivity
+import com.fitverse.app.view.scanFavorite.ScanFavoriteActivity
 
 
 class ProfileFragment : Fragment() {
@@ -26,6 +29,13 @@ class ProfileFragment : Fragment() {
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
+        binding.apply {
+            favButton.setOnClickListener {
+                Intent(requireActivity(), ScanFavoriteActivity::class.java).apply {
+                    startActivity(this)
+                }
+            }
+        }
         return binding.root
 
 

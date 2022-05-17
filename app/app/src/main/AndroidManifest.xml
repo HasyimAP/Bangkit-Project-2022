@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fitverse.app">
+    package="com.fitverse.app" >
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -37,9 +37,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.FitVerse">
+        android:theme="@style/Theme.FitVerse" >
         <activity
-            android:name=".view.ScanResultActivity"
+            android:name=".view.scanFavorite.ScanFavoriteActivity"
             android:exported="false" />
         <activity
             android:name=".view.settings.SettingsActivity"
@@ -54,6 +54,10 @@
             android:exported="false"
             android:label="Food List" />
         <activity
+            android:name=".view.scanResult.ScanResultActivity"
+            android:exported="false"
+            android:label="Scan Result" />
+        <activity
             android:name=".view.food.ScanFoodActivity"
             android:exported="false"
             android:label="Scan Food Ingredient" />
@@ -63,7 +67,7 @@
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="true"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -78,7 +82,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.fitverse.app"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
