@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fitverse.app" >
+    package="com.fitverse.app">
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -42,6 +42,9 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
         <activity
+            android:name=".view.food.ScanFoodActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.scanFavorite.ScanFavoriteActivity"
             android:exported="false" />
         <activity
@@ -61,7 +64,7 @@
             android:exported="false"
             android:label="Scan Result" />
         <activity
-            android:name=".view.food.ScanFoodActivity"
+            android:name=".view.fitness.ScanFitnessActivity"
             android:exported="false"
             android:label="Scan Food Ingredient" />
         <activity
@@ -70,7 +73,7 @@
         <activity
             android:name=".view.login.LoginActivity"
             android:exported="true"
-            android:launchMode="singleTask" >
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,7 +88,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.fitverse.app"
             android:exported="false"
-            android:grantUriPermissions="true" >
+            android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

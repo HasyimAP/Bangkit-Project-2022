@@ -4,11 +4,15 @@ import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.graphics.Color
+import android.graphics.drawable.Drawable
 import android.media.ThumbnailUtils
+import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.drawable.DrawableCompat
 import com.fitverse.app.databinding.ActivityScanFoodBinding
 import com.fitverse.app.ml.FoodNutritions
 import com.fitverse.app.view.scanResult.ScanResultActivity
@@ -18,6 +22,7 @@ import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.min
+
 
 class ScanFoodActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFoodBinding
@@ -44,6 +49,10 @@ class ScanFoodActivity : AppCompatActivity() {
                         requestPermissions(arrayOf(Manifest.permission.CAMERA), 100)
                     }
                 }
+            }
+            buttonGallery.setOnClickListener {
+                val galleryIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(galleryIntent, 2)
             }
         }
     }
@@ -105,7 +114,6 @@ class ScanFoodActivity : AppCompatActivity() {
 
             val classes = application.assets.open("food_label.txt").bufferedReader().use { it.readText() }.split("\n")
 
-
             // Test pemindahan data sederhana (nama dan list akurasi)
             val hasilScan = classes[maxPos]
             val listAkurasi = String.format("%s: %.9f%%\n" + "%s: %.9f%%\n" + "%s: %.9f%%\n",
@@ -138,6 +146,22 @@ class ScanFoodActivity : AppCompatActivity() {
             image = ThumbnailUtils.extractThumbnail(image, dimension, dimension)
             binding.imageView.setImageBitmap(image)
             image = Bitmap.createScaledBitmap(image, imageSize, imageSize, false)
+            classifyImage(image)
+        }
+        else if(requestCode == 2 && resultCode == RESULT_OK) {
+            val dat: Uri? = data?.data
+            var image: Bitmap? = null
+            try {
+                image = MediaStore.Images.Media.getBitmap(this.contentResolver, dat)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+            var removeBg: Drawable? = binding.imageView.background
+            removeBg = removeBg?.let { DrawableCompat.wrap(it) }
+            removeBg?.let { DrawableCompat.setTint(it, Color.WHITE) }
+            binding.imageView.background = removeBg
+            binding.imageView.setImageBitmap(image)
+            image = image?.let { Bitmap.createScaledBitmap(it, imageSize, imageSize, false) }
             classifyImage(image)
         }
         super.onActivityResult(requestCode, resultCode, data)
