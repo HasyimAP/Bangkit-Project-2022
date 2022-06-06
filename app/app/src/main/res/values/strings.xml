@@ -44,4 +44,7 @@
     <string name="classified_as">Classified as :</string>
     <string name="laki_laki">Laki-Laki</string>
     <string name="perempuan">Perempuan</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
 </resources>

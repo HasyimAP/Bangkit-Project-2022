@@ -19,7 +19,7 @@ import com.fitverse.app.R
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityMainBinding
 import com.fitverse.app.model.UserPreference
-import com.fitverse.app.preferences.SettingPreferences
+import com.fitverse.app.view.login.LoginActivity
 import com.fitverse.app.view.settings.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -27,6 +27,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreference.getInstance(dataStore)
@@ -63,10 +64,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         when(item.itemId){
             R.id.settings -> {
                 Intent(this, SettingsActivity::class.java).also {
                     startActivity(it)
+                }
+            }
+            R.id.logout -> {
+                viewModel.logout()
+                Intent(this, LoginActivity::class.java).also {
+                    startActivity(it)
+                    finish()
                 }
             }
         }

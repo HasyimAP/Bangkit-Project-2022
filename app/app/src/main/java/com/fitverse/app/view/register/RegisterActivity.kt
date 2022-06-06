@@ -2,6 +2,7 @@ package com.fitverse.app.view.register
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,19 +12,24 @@ import android.util.Log
 import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import com.fitverse.app.R
 import com.fitverse.app.api.ApiConfig
 import com.fitverse.app.databinding.ActivityLoginBinding
 import com.fitverse.app.databinding.ActivityRegisterBinding
 import com.fitverse.app.model.RegisterModel
 import com.fitverse.app.response.GeneralResponse
+import com.fitverse.app.view.login.LoginActivity
+import com.fitverse.app.view.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    private var jenisKelamin: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +40,23 @@ class RegisterActivity : AppCompatActivity() {
         setupView()
         setupAction()
         playAnimation()
+    }
+
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+
+            when (view.getId()) {
+                R.id.radio_male ->
+                    if (checked) {
+                        jenisKelamin = "Laki-Laki"
+                    }
+                R.id.radio_female ->
+                    if (checked) {
+                        jenisKelamin = "Perempuan"
+                    }
+            }
+        }
     }
 
     private fun setupView() {
@@ -65,12 +88,13 @@ class RegisterActivity : AppCompatActivity() {
 
         })
         binding.registerButton.setOnClickListener {
-            val name = binding.nameEditText.text.toString()
+            val nama_user = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-            val jeniskelamin = binding.passwordEditText.text.toString()
+            val jenis_kelamin = jenisKelamin
+
             when {
-                name.isEmpty() -> {
+                nama_user.isEmpty() -> {
                     binding.nameEditTextLayout.error = "Masukkan email"
                 }
                 email.isEmpty() -> {
@@ -79,9 +103,11 @@ class RegisterActivity : AppCompatActivity() {
                 password.isEmpty() -> {
                     binding.passwordEditTextLayout.error = "Masukkan password"
                 }
+                jenis_kelamin.isEmpty() -> {
+                    binding.jenisKelaminTextView.error = "Pilih salah satu"
+                }
                 else -> {
-
-                    ApiConfig.getApiService().register(RegisterModel(name, email, password, jeniskelamin))
+                    ApiConfig.getApiService().register(nama_user, email, password, jenis_kelamin)
                         .enqueue(object: Callback<GeneralResponse> {
                             override fun onFailure(call: Call<GeneralResponse>, t: Throwable) {
 //                                binding.pbSignup.visibility = View.INVISIBLE
@@ -91,9 +117,11 @@ class RegisterActivity : AppCompatActivity() {
                                 call: Call<GeneralResponse>,
                                 response: Response<GeneralResponse>
                             ) {
-                                if (response.code() == 201) {
+                                if (response.code() == 200) {
 //                                    binding.pbSignup.visibility = View.INVISIBLE
                                     Toast.makeText(applicationContext, ("user_created"), Toast.LENGTH_SHORT).show()
+                                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                                    startActivity(intent)
                                     finish()
                                 } else {
 //                                    binding.pbSignup.visibility = View.INVISIBLE
@@ -107,6 +135,8 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
+
+
     private fun playAnimation() {
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(300)
         val nameTextView = ObjectAnimator.ofFloat(binding.nameTextView, View.ALPHA, 1f).setDuration(300)
@@ -115,6 +145,8 @@ class RegisterActivity : AppCompatActivity() {
         val emailEditTextLayout = ObjectAnimator.ofFloat(binding.emailEditTextLayout, View.ALPHA, 1f).setDuration(300)
         val passwordTextView = ObjectAnimator.ofFloat(binding.passwordTextView, View.ALPHA, 1f).setDuration(300)
         val passwordEditTextLayout = ObjectAnimator.ofFloat(binding.passwordEditTextLayout, View.ALPHA, 1f).setDuration(300)
+        val jenisKelaminTextView = ObjectAnimator.ofFloat(binding.jenisKelaminTextView, View.ALPHA, 1f).setDuration(300)
+        val radioGroup = ObjectAnimator.ofFloat(binding.radioGroup, View.ALPHA, 1f).setDuration(300)
         val register = ObjectAnimator.ofFloat(binding.registerButton, View.ALPHA, 1f).setDuration(300)
 
 
@@ -127,9 +159,13 @@ class RegisterActivity : AppCompatActivity() {
                 emailEditTextLayout,
                 passwordTextView,
                 passwordEditTextLayout,
+                jenisKelaminTextView,
+                radioGroup,
                 register
             )
-            startDelay = 500
+            startDelay = 300
         }.start()
     }
+
+
 }

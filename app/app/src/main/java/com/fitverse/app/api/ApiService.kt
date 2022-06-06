@@ -8,9 +8,13 @@ import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
-    @POST("register")
+    @POST("registrasi")
     fun register(
-        @Body regis : RegisterModel
+        @Query ("nama_user") nama_user : String,
+        @Query ("email") email : String,
+        @Query ("pass") pass : String,
+        @Query ("jenis_kelamin") jenis_kelamin : String
+
     ): Call<GeneralResponse>
 
     @POST("login")
