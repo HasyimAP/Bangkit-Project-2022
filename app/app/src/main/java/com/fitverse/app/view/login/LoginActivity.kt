@@ -71,16 +71,16 @@ class LoginActivity : AppCompatActivity() {
 //            }
             binding.loginButton.setOnClickListener {
                 val email = binding.emailEditText.text.toString()
-                val password = binding.passwordEditText.text.toString()
+                val pass = binding.passwordEditText.text.toString()
                 when {
                     email.isEmpty() -> {
                         binding.emailEditTextLayout.error = "Masukkan email"
                     }
-                    password.isEmpty() -> {
+                    pass.isEmpty() -> {
                         binding.passwordEditTextLayout.error = "Masukkan password"
                     }
                     else -> {
-                        ApiConfig.getApiService().login(LoginModel(email,password))
+                        ApiConfig.getApiService().login(email,pass)
                             .enqueue(object : Callback<LoginResponse> {
 
                                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {

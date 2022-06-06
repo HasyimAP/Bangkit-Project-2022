@@ -15,7 +15,8 @@ interface ApiService {
 
     @POST("login")
     fun login(
-        @Body login : LoginModel
+        @Query ("email") email : String,
+        @Query ("pass") pass : String
     ): Call<LoginResponse>
 
 }

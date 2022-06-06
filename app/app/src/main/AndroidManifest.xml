@@ -40,7 +40,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitVerse"
         android:usesCleartextTraffic="true"
-        tools:targetApi="m">
+        tools:targetApi="n"
+        android:networkSecurityConfig="@xml/network_security_config">
         <activity
             android:name=".view.food.ScanFoodActivity"
             android:exported="false" />

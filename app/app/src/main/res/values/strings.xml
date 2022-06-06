@@ -42,4 +42,6 @@
     <string name="gallery">Gallery</string>
     <string name="nama_makanan">Nama Makanan</string>
     <string name="classified_as">Classified as :</string>
+    <string name="laki_laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
 </resources>

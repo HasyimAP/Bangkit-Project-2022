@@ -40,7 +40,7 @@
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_dashboard.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
-        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.10643115942028986" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.176" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_fitness.xml" value="0.1569046601111586" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food.xml" value="0.16" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_result.xml" value="0.264" />
@@ -50,6 +50,7 @@
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.15416666666666667" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18541666666666667" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu/setting.xml" value="0.175" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/xml/network_security_config.xml" value="0.12654980761008977" />
       </map>
     </option>
   </component>
