@@ -1,6 +1,8 @@
 package com.fitverse.app.view.login
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
@@ -12,5 +14,8 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
         viewModelScope.launch {
             pref.saveUser(UserModel(user.id_user, user.email, user.pass, user.nama_user, user.jenis_kelamin, user.isLogin))
         }
+    }
+    fun getUser(): LiveData<UserModel> {
+        return pref.getUser().asLiveData()
     }
 }

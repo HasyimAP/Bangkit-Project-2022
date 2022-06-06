@@ -29,6 +29,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
+
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
@@ -44,6 +45,13 @@ class LoginActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[LoginViewModel::class.java]
 
+        loginViewModel.getUser().observe(this) { user ->
+            if (user.isLogin) {
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+            }
+        }
         binding.apply {
             Register.setOnClickListener{
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java).apply {
@@ -96,7 +104,7 @@ class LoginActivity : AppCompatActivity() {
 
                                         loginViewModel.saveUser(UserModel(body.id_user, body.email, body.pass,body.nama_user,body.jenis_kelamin, true))
 
-                                        Toast.makeText(applicationContext,("login success"), Toast.LENGTH_SHORT).show()
+//                                        Toast.makeText(applicationContext,("login success"), Toast.LENGTH_SHORT).show()
                                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                                         startActivity(intent)
                                         finish()

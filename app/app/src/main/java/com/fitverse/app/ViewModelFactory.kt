@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.login.LoginViewModel
 import com.fitverse.app.view.main.MainViewModel
+import com.fitverse.app.view.profile.ProfileViewModel
 
 
 class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
@@ -17,6 +18,12 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(ListViewModel::class.java) -> {
+                ListViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
+                ProfileViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
