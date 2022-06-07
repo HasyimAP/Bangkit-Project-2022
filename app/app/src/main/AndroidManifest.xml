@@ -46,9 +46,6 @@
             android:name=".view.food.DetailFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".view.food.DetailActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.food.ScanFoodActivity"
             android:exported="false" />
         <activity
@@ -75,21 +72,21 @@
             android:exported="false"
             android:label="Scan Food Ingredient" />
         <activity
-            android:name=".view.login.LoginActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.MainActivity"
-            android:exported="true">
+            android:name=".view.login.LoginActivity"
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".view.main.MainActivity"
+            android:exported="false"
+        />
 
         <provider
             android:name="androidx.core.content.FileProvider"

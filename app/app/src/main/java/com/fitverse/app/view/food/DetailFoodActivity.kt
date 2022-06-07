@@ -24,7 +24,7 @@ class DetailFoodActivity : AppCompatActivity() {
             .load(listStoryModel.photoUrl)
             .into(findViewById(R.id.photoFood))
         findViewById<TextView>(R.id.nameFood).text = listStoryModel.nama
-        findViewById<TextView>(R.id.description).text = listStoryModel.description
+        findViewById<TextView>(R.id.description).text= listStoryModel.description.replace("\\n", "\n")
 
     }
 

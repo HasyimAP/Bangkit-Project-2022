@@ -43,28 +43,23 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        viewModel.getUser().observe(this) { user ->
-            if (user.isLogin) {
-                binding = ActivityMainBinding.inflate(layoutInflater)
-                setContentView(binding.root)
-                val navView: BottomNavigationView = binding.navView
 
-                val navController = findNavController(R.id.nav_host_fragment_activity_main)
-                // Passing each menu ID as a set of Ids because each
-                // menu should be considered as top level destinations.
-                val appBarConfiguration = AppBarConfiguration(setOf(
-                    R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
-                ))
-                setupActionBarWithNavController(navController, appBarConfiguration)
-                navView.setupWithNavController(navController)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+        val navView: BottomNavigationView = binding.navView
 
-            } else {
-                val intent = Intent(this, LoginActivity::class.java)
-                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
-                startActivity(intent)
-                finish()
-            }
-        }
+        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
+        val appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
+        ))
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+
+
+
     }
 
 

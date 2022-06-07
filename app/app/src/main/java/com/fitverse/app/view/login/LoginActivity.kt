@@ -45,13 +45,13 @@ class LoginActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[LoginViewModel::class.java]
 
-//        loginViewModel.getUser().observe(this) { user ->
-//            if (user.isLogin) {
-//                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-//                startActivity(intent)
-////                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
-//            }
-//        }
+        loginViewModel.getUser().observe(this) { user ->
+            if (user.isLogin) {
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                startActivity(intent)
+//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+            }
+        }
         binding.apply {
             Register.setOnClickListener{
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java).apply {
