@@ -79,6 +79,10 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.logout -> {
                 viewModel.logout()
+                Intent(this, LoginActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
             }
         }
         return super.onOptionsItemSelected(item)

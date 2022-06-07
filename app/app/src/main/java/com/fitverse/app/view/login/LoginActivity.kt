@@ -52,6 +52,7 @@ class LoginActivity : AppCompatActivity() {
 //                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
             }
         }
+
         binding.apply {
             Register.setOnClickListener{
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java).apply {
@@ -95,7 +96,7 @@ class LoginActivity : AppCompatActivity() {
                                     call: Call<LoginResponse>,
                                     response: Response<LoginResponse>
                                 ) {
-                                    if (response.code() == 200) {
+                                    if (response.body()?.message == "success") {
                                         val body = response.body()?.loginResult as UserModel
 
                                         loginViewModel.saveUser(UserModel(body.id_user, body.email, body.pass,body.nama_user,body.jenis_kelamin, true))
@@ -105,8 +106,8 @@ class LoginActivity : AppCompatActivity() {
                                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                         startActivity(intent)
                                         finish()
-                                    } else {
-                                        Toast.makeText(applicationContext,("login failed"), Toast.LENGTH_SHORT).show()
+                                    } else if (response.body()?.message == "error"){
+                                        Toast.makeText(this@LoginActivity,("Login failed. Cek Email/Password Anda"), Toast.LENGTH_SHORT).show()
 
                                         Log.d(
                                             LoginActivity::class.java.simpleName,

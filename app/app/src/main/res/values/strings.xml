@@ -47,4 +47,8 @@
     <string name="jenis_kelamin">Jenis Kelamin</string>
     <string name="setting">Setting</string>
     <string name="logout">Logout</string>
+    <string name="fitness">Fitness</string>
+    <string name="kandungan_nutrisi">Kandungan Nutrisi :</string>
+    <string name="nama_gerakan_fitness">Nama Gerakan Fitness</string>
+    <string name="deskripsi">Deskripsi</string>
 </resources>

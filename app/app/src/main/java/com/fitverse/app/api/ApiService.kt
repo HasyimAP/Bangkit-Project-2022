@@ -3,10 +3,7 @@ package com.fitverse.app.api
 import com.fitverse.app.model.ListFoodModel
 import com.fitverse.app.model.LoginModel
 import com.fitverse.app.model.RegisterModel
-import com.fitverse.app.response.FoodDetailResponse
-import com.fitverse.app.response.GeneralResponse
-import com.fitverse.app.response.ListFoodResponse
-import com.fitverse.app.response.LoginResponse
+import com.fitverse.app.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -28,6 +25,9 @@ interface ApiService {
 
     @GET("food")
     fun getFood(): Call<ListFoodResponse>
+
+    @GET("fitness")
+    fun getFitness(): Call<ListFitnessResponse>
 
     @GET("scanfood/{id_food}")
     fun findFoodDetail(

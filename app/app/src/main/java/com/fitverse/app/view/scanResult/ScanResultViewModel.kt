@@ -21,7 +21,7 @@ class ScanResultViewModel (application: Application) : AndroidViewModel(applicat
     fun setFoodDetail(id: String) {
         ApiConfig.getApiService()
             .findFoodDetail(id)
-            ?.enqueue(object : Callback<FoodDetailResponse?> {
+            .enqueue(object : Callback<FoodDetailResponse?> {
                 override fun onResponse(
                     call: Call<FoodDetailResponse?>,
                     response: Response<FoodDetailResponse?>
@@ -36,7 +36,6 @@ class ScanResultViewModel (application: Application) : AndroidViewModel(applicat
                 }
 
             })
-
     }
 
     fun getFoodDetail(): LiveData<FoodDetailResponse> {

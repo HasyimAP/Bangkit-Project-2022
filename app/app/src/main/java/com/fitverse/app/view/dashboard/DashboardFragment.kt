@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.databinding.FragmentDashboardBinding
 import com.fitverse.app.view.comingSoon.ComingSoonActivity
+import com.fitverse.app.view.fitness.FitnessListActivity
 import com.fitverse.app.view.fitness.ScanFitnessActivity
 import com.fitverse.app.view.food.FoodListActivity
 import com.fitverse.app.view.food.ScanFoodActivity
@@ -57,7 +58,9 @@ class DashboardFragment : Fragment() {
                 }
             }
             exerciseListButton.setOnClickListener{
-
+                Intent(requireActivity(), FitnessListActivity::class.java).apply {
+                    startActivity(this)
+                }
             }
             fitnessNewsButton.setOnClickListener{
                 comingSoon()

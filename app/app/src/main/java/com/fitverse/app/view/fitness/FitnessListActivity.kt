@@ -1,4 +1,4 @@
-package com.fitverse.app.view.food
+package com.fitverse.app.view.fitness
 
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
@@ -11,42 +11,42 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.fitverse.app.ViewModelFactory
-import com.fitverse.app.databinding.ActivityFoodListBinding
+import com.fitverse.app.databinding.ActivityFitnessListBinding
 import com.fitverse.app.model.UserPreference
 
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
-class FoodListActivity : AppCompatActivity() {
+class FitnessListActivity : AppCompatActivity() {
 
-    private lateinit var listViewModel: ListViewModel
-    private lateinit var binding: ActivityFoodListBinding
-    private lateinit var adapter: AdapterFood
+    private lateinit var fitnessListViewModel: FitnessListViewModel
+    private lateinit var binding: ActivityFitnessListBinding
+    private lateinit var adapter: AdapterFitness
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityFoodListBinding.inflate(layoutInflater)
+        binding = ActivityFitnessListBinding.inflate(layoutInflater)
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val actionBar = supportActionBar
-        actionBar?.title = ("List Food")
+        actionBar?.title = ("Exercise List")
 
-        adapter = AdapterFood()
+        adapter = AdapterFitness()
 
-        listViewModel = ViewModelProvider(
+        fitnessListViewModel = ViewModelProvider(
             this,
             ViewModelFactory(UserPreference.getInstance(dataStore))
-        )[ListViewModel::class.java]
+        )[FitnessListViewModel::class.java]
 
         binding.apply {
-            rvFood.layoutManager = LinearLayoutManager(this@FoodListActivity)
-            rvFood.setHasFixedSize(true)
-            rvFood.adapter = adapter
+            rvFitness.layoutManager = LinearLayoutManager(this@FitnessListActivity)
+            rvFitness.setHasFixedSize(true)
+            rvFitness.adapter = adapter
         }
 
-        listViewModel.setFood()
+        fitnessListViewModel.setFitness()
         showLoading(true)
-        listViewModel.getFood().observe(this) {
+        fitnessListViewModel.getFitness().observe(this) {
             if (it != null) {
                 adapter.setList(it)
                 showLoading(false)

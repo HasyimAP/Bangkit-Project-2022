@@ -39,22 +39,22 @@
         />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_below="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="43dp"
+        android:layout_alignParentBottom="true"
         android:gravity="bottom|center_horizontal"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_camera"
-            android:layout_width="150dp"
+            android:layout_width="160dp"
             android:layout_height="160dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/biru_muda"
             android:drawableTop="@drawable/ic_camera"
             android:padding="30dp"
@@ -70,7 +70,7 @@
             android:layout_height="160dp"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-
+            android:layout_marginBottom="10dp"
             android:backgroundTint="@color/hijau"
             android:drawableTop="@drawable/ic_gallery"
             android:padding="30dp"

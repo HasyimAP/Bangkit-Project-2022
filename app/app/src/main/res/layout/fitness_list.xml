@@ -26,29 +26,29 @@
             android:layout_height="match_parent"
             android:padding="5dp"
             app:srcCompat="@drawable/latar"
-            android:contentDescription="@string/food_list" />
+            android:contentDescription="@string/fitness" />
     </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/tvNameFood"
+        android:id="@+id/tvNameFitness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginTop="25dp"
         android:textStyle="bold"
         android:textSize="20sp"
-        tools:text="Food"
-        android:textColor="@color/hijau"/>
+        tools:text="Fitness"
+        android:textColor="@color/biru_muda"/>
 
-<!--    <TextView-->
-<!--        android:id="@+id/tvDesc"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="100dp"-->
-<!--        android:layout_marginTop="40dp"-->
-<!--        android:layout_marginEnd="20dp"-->
-<!--        android:textStyle="bold"-->
-<!--        tools:text="Food Food Food Food Food Food"-->
-<!--        />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvDesc"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="100dp"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:layout_marginEnd="20dp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        tools:text="Food Food Food Food Food Food"-->
+    <!--        />-->
 
 </androidx.cardview.widget.CardView>

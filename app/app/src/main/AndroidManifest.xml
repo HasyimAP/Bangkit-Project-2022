@@ -43,6 +43,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
+            android:name=".view.fitness.DetailFitnessActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.fitness.FitnessListActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.food.DetailFoodActivity"
             android:exported="false" />
         <activity
@@ -76,7 +82,7 @@
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -85,8 +91,7 @@
         </activity>
         <activity
             android:name=".view.main.MainActivity"
-            android:exported="false"
-        />
+            android:exported="false" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
