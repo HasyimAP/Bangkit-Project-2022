@@ -1,5 +1,6 @@
 package com.fitverse.app.api
 
+import com.fitverse.app.model.ListFoodModel
 import com.fitverse.app.model.LoginModel
 import com.fitverse.app.model.RegisterModel
 import com.fitverse.app.response.GeneralResponse
@@ -26,4 +27,9 @@ interface ApiService {
 
     @GET("food")
     fun getFood(): Call<ListFoodResponse>
+
+    @GET("scanfood/{id_food}")
+    fun findFoodDetail(
+        @Path("id_food") id_food: Int
+    ): Call<ListFoodModel>
 }

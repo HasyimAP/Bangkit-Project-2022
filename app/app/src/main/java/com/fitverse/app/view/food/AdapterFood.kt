@@ -1,7 +1,10 @@
 package com.fitverse.app.view.food
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -39,19 +42,19 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
 //                tvDesc.text = items.description
 
 //
-//                itemView.setOnClickListener {
-//                    val intent = Intent(itemView.context, DetailStoryActivity::class.java)
-//                    intent.putExtra("ListStoryModel", items)
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailFoodActivity::class.java)
+                    intent.putExtra("ListStoryModel", items)
 
-//                    val optionsCompat: ActivityOptionsCompat =
-//                        ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                            itemView.context as Activity,
-//                            Pair(ivPhoto, "profile"),
-//                            Pair(tvName, "name"),
-//
-//                        )
-//                    itemView.context.startActivity(intent, optionsCompat.toBundle())
-//                }
+                    val optionsCompat: ActivityOptionsCompat =
+                        ActivityOptionsCompat.makeSceneTransitionAnimation(
+                            itemView.context as Activity,
+                            androidx.core.util.Pair(ivPhoto, "profile"),
+                            androidx.core.util.Pair(tvNameFood, "name"),
+
+                            )
+                    itemView.context.startActivity(intent, optionsCompat.toBundle())
+                }
 //
             }
         }

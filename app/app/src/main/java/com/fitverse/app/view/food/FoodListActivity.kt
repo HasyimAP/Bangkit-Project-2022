@@ -33,7 +33,8 @@ class FoodListActivity : AppCompatActivity() {
 
         adapter = AdapterFood()
 
-        listViewModel = ViewModelProvider(this,
+        listViewModel = ViewModelProvider(
+            this,
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[ListViewModel::class.java]
 
@@ -50,46 +51,12 @@ class FoodListActivity : AppCompatActivity() {
                 adapter.setList(it)
                 showLoading(false)
 //                Toast.makeText(applicationContext,("${it[1]}"), Toast.LENGTH_SHORT).show()
-            }
-            else {
+            } else {
                 showLoading(false)
-                Toast.makeText(applicationContext,("The Data is Empty"), Toast.LENGTH_SHORT).show()
+                Toast.makeText(applicationContext, ("The Data is Empty"), Toast.LENGTH_SHORT).show()
             }
         }
-
-
-
-//        binding.addFab.setOnClickListener{
-//            val intent = Intent(this@MainActivity, PostStoryActivity::class.java)
-//            startActivity(intent)
-//        }
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        menuInflater.inflate(R.menu.option_menu, menu)
-//        return super.onCreateOptionsMenu(menu)
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when(item.itemId){
-//            R.id.maps_menu -> {
-//                Toast.makeText(applicationContext,("The Fiture is Not Ready"), Toast.LENGTH_SHORT).show()
-//                true
-//            }
-//            R.id.settings_menu -> {
-//                startActivity(Intent(Settings.ACTION_LOCALE_SETTINGS))
-//                true
-//            }
-//            R.id.logout_menu -> {
-//                mainViewModel.logout()
-//                finish()
-//                true
-//            }
-//            else -> true
-//
-//        }
-//        return super.onOptionsItemSelected(item)
-//    }
 
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
