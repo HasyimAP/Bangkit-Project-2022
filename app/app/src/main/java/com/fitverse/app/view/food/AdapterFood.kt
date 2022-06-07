@@ -1,9 +1,7 @@
-package com.fitverse.app.adapter
+package com.fitverse.app.view.food
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
@@ -20,9 +18,10 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    fun setList(items: List<ListFoodModel>){
+    fun setList(items: ArrayList<ListFoodModel>){
         list.clear()
         list.addAll(items)
+        notifyDataSetChanged()
     }
 
     inner class StoryViewHolder(private val binding: ItemListBinding) :
@@ -37,7 +36,8 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(ivPhoto)
                 tvNameFood.text = items.nama
-                tvDesc.text = items.description
+//                tvDesc.text = items.description
+
 //
 //                itemView.setOnClickListener {
 //                    val intent = Intent(itemView.context, DetailStoryActivity::class.java)

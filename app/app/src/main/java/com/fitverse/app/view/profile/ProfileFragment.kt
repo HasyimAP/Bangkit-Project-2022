@@ -22,18 +22,19 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
+    private lateinit var profileViewModel: ProfileViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
-    val pref = UserPreference.getInstance(dataStore)
+//    val pref = UserPreference.getInstance(dataStore)
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        val dashboardViewModel =  ViewModelProvider(this, ViewModelFactory(pref))[ProfileViewModel::class.java]
+//        val dashboardViewModel =  ViewModelProvider(this, ViewModelFactory(pref))[ProfileViewModel::class.java]
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
@@ -43,11 +44,9 @@ class ProfileFragment : Fragment() {
                     startActivity(this)
                 }
             }
-            outButton.setOnClickListener {
-                dashboardViewModel.logout()
-                activity?.finish()
-
-            }
+//            outButton.setOnClickListener {
+//                profileViewModel.logout()
+//            }
 
         }
 

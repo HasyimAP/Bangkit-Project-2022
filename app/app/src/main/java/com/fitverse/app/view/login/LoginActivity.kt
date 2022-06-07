@@ -45,13 +45,13 @@ class LoginActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[LoginViewModel::class.java]
 
-        loginViewModel.getUser().observe(this) { user ->
-            if (user.isLogin) {
-                val intent = Intent(this@LoginActivity, MainActivity::class.java)
-                startActivity(intent)
-//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
-            }
-        }
+//        loginViewModel.getUser().observe(this) { user ->
+//            if (user.isLogin) {
+//                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+//                startActivity(intent)
+////                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+//            }
+//        }
         binding.apply {
             Register.setOnClickListener{
                 startActivity(Intent(this@LoginActivity, RegisterActivity::class.java).apply {
@@ -72,11 +72,7 @@ class LoginActivity : AppCompatActivity() {
                 }
 
             })
-//            loginButton.setOnClickListener{
-//                startActivity(Intent(this@LoginActivity, MainActivity::class.java).apply {
-//                    startActivity(this)
-//                })
-//            }
+
             binding.loginButton.setOnClickListener {
                 val email = binding.emailEditText.text.toString()
                 val pass = binding.passwordEditText.text.toString()
@@ -106,9 +102,9 @@ class LoginActivity : AppCompatActivity() {
 
 //                                        Toast.makeText(applicationContext,("login success"), Toast.LENGTH_SHORT).show()
                                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                         startActivity(intent)
                                         finish()
-
                                     } else {
                                         Toast.makeText(applicationContext,("login failed"), Toast.LENGTH_SHORT).show()
 

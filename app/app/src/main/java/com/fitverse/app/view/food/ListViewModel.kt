@@ -1,11 +1,10 @@
-package com.fitverse.app
+package com.fitverse.app.view.food
 
 import android.util.Log
 import androidx.constraintlayout.widget.Constraints
 import androidx.lifecycle.*
 import com.fitverse.app.api.ApiConfig
 import com.fitverse.app.model.ListFoodModel
-import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.ListFoodResponse
 import retrofit2.Call
@@ -13,7 +12,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListViewModel(private val pref: UserPreference) : ViewModel() {
-    val list_food = MutableLiveData<List<ListFoodModel>>()
+    val listFood = MutableLiveData<ArrayList<ListFoodModel>>()
 
     fun setFood(){
         ApiConfig.getApiService().getFood()
@@ -22,8 +21,8 @@ class ListViewModel(private val pref: UserPreference) : ViewModel() {
                 call: Call<ListFoodResponse>,
                 response: Response<ListFoodResponse>
             ) {
-                if(response.isSuccessful){
-                    list_food.postValue(response.body()?.food)
+                if(response.code() == 200){
+                    listFood.postValue(response.body()?.food)
                 }
             }
 
@@ -33,6 +32,8 @@ class ListViewModel(private val pref: UserPreference) : ViewModel() {
         })
     }
 
-    fun getFood() : MutableLiveData<List<ListFoodModel>> = list_food
+    fun getFood(): LiveData<ArrayList<ListFoodModel>> {
+        return listFood
+    }
 
 }

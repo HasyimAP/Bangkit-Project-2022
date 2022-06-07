@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreference.getInstance(dataStore)
-        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
-        mainViewModel.getThemeSettings().observe(this
+        viewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
+        viewModel.getThemeSettings().observe(this
         ) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -43,20 +43,32 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        viewModel.getUser().observe(this) { user ->
+            if (user.isLogin) {
+                binding = ActivityMainBinding.inflate(layoutInflater)
+                setContentView(binding.root)
+//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+                val navView: BottomNavigationView = binding.navView
 
-        val navView: BottomNavigationView = binding.navView
+                val navController = findNavController(R.id.nav_host_fragment_activity_main)
+                // Passing each menu ID as a set of Ids because each
+                // menu should be considered as top level destinations.
+                val appBarConfiguration = AppBarConfiguration(setOf(
+                    R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
+                ))
+                setupActionBarWithNavController(navController, appBarConfiguration)
+                navView.setupWithNavController(navController)
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
-        ))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+            } else {
+                val intent = Intent(this, LoginActivity::class.java)
+                intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
+                startActivity(intent)
+                finish()
+            }
+        }
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.setting, menu)
@@ -73,10 +85,6 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.logout -> {
                 viewModel.logout()
-                Intent(this, LoginActivity::class.java).also {
-                    startActivity(it)
-                    finish()
-                }
             }
         }
         return super.onOptionsItemSelected(item)

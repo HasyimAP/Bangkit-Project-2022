@@ -10,6 +10,10 @@ import com.fitverse.app.preferences.SettingPreferences
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val pref: UserPreference) : ViewModel() {
+    fun getUser(): LiveData<UserModel> {
+        return pref.getUser().asLiveData()
+    }
+
     fun getThemeSettings(): LiveData<Boolean> {
         return pref.getThemeSetting().asLiveData()
     }

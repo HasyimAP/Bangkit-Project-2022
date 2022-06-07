@@ -1,7 +1,7 @@
 package com.fitverse.app.model
 
 import android.os.Parcelable
-import kotlinx.parcelize.Parcelize
+//import kotlinx.parcelize.Parcelize
 
 //@Parcelize
 data class ListFoodModel (

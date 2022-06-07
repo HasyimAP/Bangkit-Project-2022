@@ -3,6 +3,7 @@ package com.fitverse.app
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.model.UserPreference
+import com.fitverse.app.view.food.ListViewModel
 import com.fitverse.app.view.login.LoginViewModel
 import com.fitverse.app.view.main.MainViewModel
 import com.fitverse.app.view.profile.ProfileViewModel

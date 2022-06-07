@@ -13,4 +13,10 @@ class ProfileViewModel(private val pref: UserPreference) : ViewModel() {
         value = "This is profile Fragment"
     }
     val text: LiveData<String> = _text
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.logout()
+        }
+    }
 }

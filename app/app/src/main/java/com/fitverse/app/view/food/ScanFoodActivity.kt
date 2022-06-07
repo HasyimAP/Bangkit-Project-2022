@@ -47,6 +47,8 @@ class ScanFoodActivity : AppCompatActivity() {
                 } else {
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                         requestPermissions(arrayOf(Manifest.permission.CAMERA), 100)
+                        val cameraIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+                        startActivityForResult(cameraIntent, 1)
                     }
                 }
             }
