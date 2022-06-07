@@ -47,7 +47,6 @@ class ProfileFragment : Fragment() {
 //            outButton.setOnClickListener {
 //                profileViewModel.logout()
 //            }
-
         }
 
         return binding.root
