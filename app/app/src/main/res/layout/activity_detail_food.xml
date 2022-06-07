@@ -5,41 +5,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.food.DetailFoodActivity">
+<!--    <ImageView-->
+<!--        android:id="@+id/photoFood"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:contentDescription="@string/photo"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:background="@drawable/image_result"-->
+<!--        tools:srcCompat="@drawable/image_result" />-->
+
     <ImageView
         android:id="@+id/photoFood"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/photo"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/image_result"
-        tools:srcCompat="@drawable/image_result" />
+
+        android:transitionName="profile"/>
 
     <TextView
         android:id="@+id/nameFood"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
         android:layout_marginBottom="20dp"
         android:text="@string/nama_makanan"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoFood" />
+    <TextView
+        android:id="@+id/kandungan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:text="Kandungan Nutrisi :"
+        android:textSize="14sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameFood" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:padding="20dp"
         android:paddingHorizontal="20dp"
         android:text="@string/tes"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nameFood" />
+        app:layout_constraintTop_toBottomOf="@+id/kandungan" />
 
     <ToggleButton
         android:id="@+id/toggleFavorite"

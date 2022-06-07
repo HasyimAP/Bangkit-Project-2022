@@ -47,7 +47,6 @@ class MainActivity : AppCompatActivity() {
             if (user.isLogin) {
                 binding = ActivityMainBinding.inflate(layoutInflater)
                 setContentView(binding.root)
-//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
                 val navView: BottomNavigationView = binding.navView
 
                 val navController = findNavController(R.id.nav_host_fragment_activity_main)

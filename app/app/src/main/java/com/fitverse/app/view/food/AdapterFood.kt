@@ -39,9 +39,7 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(ivPhoto)
                 tvNameFood.text = items.nama
-//                tvDesc.text = items.description
 
-//
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailFoodActivity::class.java)
                     intent.putExtra("ListStoryModel", items)

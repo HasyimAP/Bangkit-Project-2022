@@ -7,18 +7,15 @@
     tools:context=".view.scanResult.ScanResultActivity">
 
     <ImageView
-        android:id="@+id/photo"
+        android:id="@+id/photoFood"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/photo"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/image_result"
-        tools:srcCompat="@drawable/image_result" />
+        android:transitionName="profile"/>
 
     <TextView
-        android:id="@+id/result_name"
+        android:id="@+id/resultname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -27,9 +24,8 @@
         android:text="@string/nama_makanan"
         android:textSize="20sp"
         android:textStyle="bold"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo" />
+        app:layout_constraintTop_toBottomOf="@+id/photoFood" />
 
     <TextView
         android:id="@+id/description"
@@ -41,10 +37,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/result_name" />
+        app:layout_constraintTop_toBottomOf="@+id/resultname" />
 
     <TextView
-        android:id="@+id/list_akurasi"
+        android:id="@+id/listakurasi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingHorizontal="20dp"
@@ -80,5 +76,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/scan_food_float"
         android:contentDescription="@string/scan_food_ingredient" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/photoFood" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
