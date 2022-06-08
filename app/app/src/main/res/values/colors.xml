@@ -12,4 +12,6 @@
     <color name="biru_muda">#0277BD</color>
     <color name="biru_dark">#1E2A39</color>
     <color name="hijau">#00C853</color>
+    <color name="abu">#999999</color>
+    <color name="abu2">#E7E3E3</color>
 </resources>

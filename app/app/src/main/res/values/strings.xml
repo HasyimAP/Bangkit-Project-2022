@@ -37,4 +37,18 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="tab_text_1">Food</string>
     <string name="tab_text_2">Fitness</string>
+    <string name="photo">photo</string>
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="nama_makanan">Nama Makanan</string>
+    <string name="classified_as">Classified as :</string>
+    <string name="laki_laki">Laki-Laki</string>
+    <string name="perempuan">Perempuan</string>
+    <string name="jenis_kelamin">Jenis Kelamin</string>
+    <string name="setting">Setting</string>
+    <string name="logout">Logout</string>
+    <string name="fitness">Fitness</string>
+    <string name="kandungan_nutrisi">Kandungan Nutrisi :</string>
+    <string name="nama_gerakan_fitness">Nama Gerakan Fitness</string>
+    <string name="deskripsi">Deskripsi</string>
 </resources>

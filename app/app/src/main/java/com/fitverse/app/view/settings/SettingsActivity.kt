@@ -11,7 +11,8 @@ import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.R
 import com.fitverse.app.preferences.SettingPreferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.fitverse.app.view.ViewModelFactory
+import com.fitverse.app.ViewModelFactory
+import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.main.MainViewModel
 import com.google.android.material.switchmaterial.SwitchMaterial
 
@@ -26,7 +27,7 @@ class SettingsActivity : AppCompatActivity() {
 
         val switchTheme = findViewById<SwitchMaterial>(R.id.switch_dark)
 
-        val pref = SettingPreferences.getInstance(dataStore)
+        val pref = UserPreference.getInstance(dataStore)
         val mainViewModel = ViewModelProvider(this,
             ViewModelFactory(pref))[MainViewModel::class.java]
         mainViewModel.getThemeSettings().observe(this

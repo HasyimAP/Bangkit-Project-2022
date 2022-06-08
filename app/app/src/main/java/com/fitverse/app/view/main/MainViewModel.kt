@@ -4,10 +4,16 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
+import com.fitverse.app.model.UserModel
+import com.fitverse.app.model.UserPreference
 import com.fitverse.app.preferences.SettingPreferences
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val pref: SettingPreferences) : ViewModel() {
+class MainViewModel(private val pref: UserPreference) : ViewModel() {
+    fun getUser(): LiveData<UserModel> {
+        return pref.getUser().asLiveData()
+    }
+
     fun getThemeSettings(): LiveData<Boolean> {
         return pref.getThemeSetting().asLiveData()
     }
@@ -17,4 +23,12 @@ class MainViewModel(private val pref: SettingPreferences) : ViewModel() {
             pref.saveThemeSetting(isDarkModeActive)
         }
     }
+
+    fun logout() {
+        viewModelScope.launch {
+            pref.logout()
+        }
+    }
+
+
 }

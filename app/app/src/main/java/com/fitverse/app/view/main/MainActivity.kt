@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.datastore.core.DataStore
@@ -14,13 +13,13 @@ import androidx.datastore.preferences.preferencesDataStore
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.fitverse.app.R
+import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityMainBinding
-import com.fitverse.app.preferences.SettingPreferences
-import com.fitverse.app.view.ViewModelFactory
+import com.fitverse.app.model.UserPreference
+import com.fitverse.app.view.login.LoginActivity
 import com.fitverse.app.view.settings.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -28,11 +27,12 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private lateinit var viewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val pref = SettingPreferences.getInstance(dataStore)
-        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
-        mainViewModel.getThemeSettings().observe(this
+        val pref = UserPreference.getInstance(dataStore)
+        viewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
+        viewModel.getThemeSettings().observe(this
         ) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -43,9 +43,10 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -56,7 +57,12 @@ class MainActivity : AppCompatActivity() {
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+
+
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.setting, menu)
@@ -64,10 +70,18 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
         when(item.itemId){
             R.id.settings -> {
                 Intent(this, SettingsActivity::class.java).also {
                     startActivity(it)
+                }
+            }
+            R.id.logout -> {
+                viewModel.logout()
+                Intent(this, LoginActivity::class.java).also {
+                    startActivity(it)
+                    finish()
                 }
             }
         }

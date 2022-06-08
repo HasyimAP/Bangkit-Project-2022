@@ -21,6 +21,7 @@ class ScanFavoriteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_favorite)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 //        val bundle = Bundle()
 //        bundle.putString(MainActivity.EXT_USERNAME, username)
 
@@ -32,5 +33,10 @@ class ScanFavoriteActivity : AppCompatActivity() {
             tab.text = resources.getString(TAB_TITLES[position])
         }.attach()
         supportActionBar?.elevation = 0f
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }
