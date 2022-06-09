@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.fitness.FitnessListViewModel
+import com.fitverse.app.view.fitness.fitnessScan.ScanFitnessResultViewModel
 import com.fitverse.app.view.food.ListViewModel
+import com.fitverse.app.view.food.foodScan.ScanFoodResultViewModel
 import com.fitverse.app.view.login.LoginViewModel
 import com.fitverse.app.view.main.MainViewModel
 import com.fitverse.app.view.profile.ProfileViewModel
@@ -29,6 +31,12 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             }
             modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
                 ProfileViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(ScanFoodResultViewModel::class.java) -> {
+                ScanFoodResultViewModel(pref) as T
+            }
+            modelClass.isAssignableFrom(ScanFitnessResultViewModel::class.java) -> {
+                ScanFitnessResultViewModel(pref) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

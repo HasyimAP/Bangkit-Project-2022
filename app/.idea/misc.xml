@@ -52,9 +52,13 @@
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.10643115942028986" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_fitness.xml" value="0.1569046601111586" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_fitness_result.xml" value="0.18127404873877725" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food.xml" value="0.16" />
-        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_result.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food_result.xml" value="0.1218469431380932" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_result.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fitness_list.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fitness_result_adapter.xml" value="0.18127404873877725" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/food_result_adapter.xml" value="0.16417272338606242" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_dashboard.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_history.xml" value="0.15416666666666667" />
         <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_profile.xml" value="0.15416666666666667" />

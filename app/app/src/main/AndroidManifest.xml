@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.fitverse.app">
+    package="com.fitverse.app" >
 
     <uses-feature android:name="android.hardware.camera" />
 
@@ -41,7 +41,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FitVerse"
         android:usesCleartextTraffic="true"
-        tools:targetApi="n">
+        tools:targetApi="n" >
+        <activity
+            android:name=".view.fitness.fitnessScan.ScanFitnessResultActivity"
+            android:exported="false" />
         <activity
             android:name=".view.fitness.DetailFitnessActivity"
             android:exported="false" />
@@ -52,7 +55,7 @@
             android:name=".view.food.DetailFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".view.food.ScanFoodActivity"
+            android:name=".view.food.foodScan.ScanFoodActivity"
             android:exported="false" />
         <activity
             android:name=".view.scanFavorite.ScanFavoriteActivity"
@@ -70,19 +73,19 @@
             android:exported="false"
             android:label="Food List" />
         <activity
-            android:name=".view.scanResult.ScanResultActivity"
-            android:exported="false"
-            android:label="Scan Result" />
-        <activity
-            android:name=".view.fitness.ScanFitnessActivity"
+            android:name=".view.food.foodScan.ScanFoodResultActivity"
             android:exported="false"
             android:label="Scan Food Ingredient" />
+        <activity
+            android:name=".view.fitness.fitnessScan.ScanFitnessActivity"
+            android:exported="false"
+            android:label="Scan Exercise Name" />
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".view.login.LoginActivity"
-            android:exported="true">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -97,7 +100,7 @@
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.fitverse.app"
             android:exported="false"
-            android:grantUriPermissions="true">
+            android:grantUriPermissions="true" >
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />

@@ -1,18 +1,12 @@
 package com.fitverse.app.view.history
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.fitverse.app.databinding.FragmentDashboardBinding
 import com.fitverse.app.databinding.FragmentHistoryBinding
-import com.fitverse.app.view.comingSoon.ComingSoonActivity
-import com.fitverse.app.view.food.FoodListActivity
-import com.fitverse.app.view.food.ScanFoodActivity
-import com.fitverse.app.view.main.MainActivity
 
 class HistoryFragment : Fragment() {
 

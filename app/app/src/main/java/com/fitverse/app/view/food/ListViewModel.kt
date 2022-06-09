@@ -4,7 +4,8 @@ import android.util.Log
 import androidx.constraintlayout.widget.Constraints
 import androidx.lifecycle.*
 import com.fitverse.app.api.ApiConfig
-import com.fitverse.app.model.ListFoodModel
+import com.fitverse.app.model.FoodModel
+import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.ListFoodResponse
 import retrofit2.Call
@@ -12,17 +13,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ListViewModel(private val pref: UserPreference) : ViewModel() {
-    val listFood = MutableLiveData<ArrayList<ListFoodModel>>()
+    val listFood = MutableLiveData<ArrayList<FoodModel>>()
 
-    fun setFood(){
-        ApiConfig.getApiService().getFood()
+    fun getUser(): LiveData<UserModel> {
+        return pref.getUser().asLiveData()
+    }
+
+    fun setFood(token: String){
+        ApiConfig.getApiService().getFood("Bearer $token")
             .enqueue(object : Callback<ListFoodResponse> {
             override fun onResponse(
                 call: Call<ListFoodResponse>,
                 response: Response<ListFoodResponse>
             ) {
                 if(response.code() == 200){
-                    listFood.postValue(response.body()?.food)
+                    listFood.postValue(response.body()?.data)
                 }
             }
 
@@ -32,7 +37,7 @@ class ListViewModel(private val pref: UserPreference) : ViewModel() {
         })
     }
 
-    fun getFood(): LiveData<ArrayList<ListFoodModel>> {
+    fun getFood(): LiveData<ArrayList<FoodModel>> {
         return listFood
     }
 

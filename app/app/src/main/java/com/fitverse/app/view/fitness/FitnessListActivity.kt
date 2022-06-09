@@ -44,8 +44,11 @@ class FitnessListActivity : AppCompatActivity() {
             rvFitness.adapter = adapter
         }
 
-        fitnessListViewModel.setFitness()
         showLoading(true)
+
+        fitnessListViewModel.getUser().observe(this) { user ->
+            fitnessListViewModel.setFitness(user.token)
+        }
         fitnessListViewModel.getFitness().observe(this) {
             if (it != null) {
                 adapter.setList(it)

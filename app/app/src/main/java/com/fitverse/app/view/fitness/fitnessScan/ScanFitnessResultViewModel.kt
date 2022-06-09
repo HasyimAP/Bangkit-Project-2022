@@ -1,7 +1,7 @@
-package com.fitverse.app.view.fitness
+package com.fitverse.app.view.fitness.fitnessScan
 
+import android.content.ContentValues
 import android.util.Log
-import androidx.constraintlayout.widget.Constraints
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,33 +15,34 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class FitnessListViewModel(private val pref: UserPreference) : ViewModel() {
-    val listFitness = MutableLiveData<ArrayList<FitnessModel>>()
+class ScanFitnessResultViewModel (private val pref: UserPreference) : ViewModel() {
+    val user = MutableLiveData<ArrayList<FitnessModel>>()
 
     fun getUser(): LiveData<UserModel> {
         return pref.getUser().asLiveData()
     }
 
-    fun setFitness(token: String){
-        ApiConfig.getApiService().getFitness("Bearer $token")
+    fun setFitnessDetail(token: String ,name: String) {
+        ApiConfig.getApiService()
+            .findFitnessDetail("Bearer $token",name)
             .enqueue(object : Callback<ListFitnessResponse> {
                 override fun onResponse(
                     call: Call<ListFitnessResponse>,
                     response: Response<ListFitnessResponse>
                 ) {
-                    if(response.code() == 200){
-                        listFitness.postValue(response.body()?.data)
+                    if (response.code() == 200) {
+                        user.postValue(response.body()?.data)
                     }
                 }
 
                 override fun onFailure(call: Call<ListFitnessResponse>, t: Throwable) {
-                    Log.e(Constraints.TAG, "onFailure: ${t.message.toString()}")
+                    Log.e(ContentValues.TAG, "onFailure: ${t.message}")
                 }
             })
     }
 
-    fun getFitness(): LiveData<ArrayList<FitnessModel>> {
-        return listFitness
+    fun getFitnessDetail(): LiveData<ArrayList<FitnessModel>> {
+        return user
     }
 
 }

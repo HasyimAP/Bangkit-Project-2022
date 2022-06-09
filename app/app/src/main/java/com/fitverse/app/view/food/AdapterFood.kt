@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.fitverse.app.databinding.ItemListBinding
-import com.fitverse.app.model.ListFoodModel
+import com.fitverse.app.model.FoodModel
 import java.util.*
 
 class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
-    private val list = ArrayList<ListFoodModel>()
+    private val list = ArrayList<FoodModel>()
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -21,7 +21,7 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    fun setList(items: ArrayList<ListFoodModel>){
+    fun setList(items: ArrayList<FoodModel>){
         list.clear()
         list.addAll(items)
         notifyDataSetChanged()
@@ -29,7 +29,7 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
 
     inner class StoryViewHolder(private val binding: ItemListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(items: ListFoodModel) {
+        fun bind(items: FoodModel) {
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(items)
             }
@@ -38,7 +38,7 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
                         .load(items.photoUrl)
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(ivPhoto)
-                tvNameFood.text = items.nama
+                tvNameFood.text = items.name
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailFoodActivity::class.java)
@@ -70,6 +70,6 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickCallback {
-        fun onItemClicked(user: ListFoodModel)
+        fun onItemClicked(user: FoodModel)
     }
 }

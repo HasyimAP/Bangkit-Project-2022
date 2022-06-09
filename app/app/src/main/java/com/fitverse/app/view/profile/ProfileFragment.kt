@@ -9,11 +9,10 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.fitverse.app.R
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.FragmentProfileBinding
-import com.fitverse.app.model.UserPreference
-import com.fitverse.app.view.food.ScanFoodActivity
+import com.fitverse.app.view.dashboard.DashboardViewModel
+import com.fitverse.app.view.main.MainActivity
 import com.fitverse.app.view.main.MainViewModel
 import com.fitverse.app.view.scanFavorite.ScanFavoriteActivity
 
@@ -22,7 +21,7 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class ProfileFragment : Fragment() {
 
     private var _binding: FragmentProfileBinding? = null
-    private lateinit var profileViewModel: ProfileViewModel
+    private lateinit var viewModel: ProfileViewModel
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,8 +32,8 @@ class ProfileFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-//        val dashboardViewModel =  ViewModelProvider(this, ViewModelFactory(pref))[ProfileViewModel::class.java]
+//    val profileViewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
+//        val profileViewModel =  ViewModelProvider(this, ViewModelFactory(pref))[ProfileViewModel::class.java]
 
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
 
@@ -44,6 +43,9 @@ class ProfileFragment : Fragment() {
                     startActivity(this)
                 }
             }
+//            viewModel.getUser().observe(viewLifecycleOwner) { user ->
+//                nama.text = user.name
+//            }
 //            outButton.setOnClickListener {
 //                profileViewModel.logout()
 //            }

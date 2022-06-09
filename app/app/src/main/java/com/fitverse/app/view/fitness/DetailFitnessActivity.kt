@@ -7,7 +7,7 @@ import com.bumptech.glide.Glide
 import com.fitverse.app.R
 import com.fitverse.app.databinding.ActivityDetailFitnessBinding
 
-import com.fitverse.app.model.ListFitnessModel
+import com.fitverse.app.model.FitnessModel
 
 class DetailFitnessActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailFitnessBinding
@@ -18,11 +18,11 @@ class DetailFitnessActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val listFitnessModel = intent.getParcelableExtra<ListFitnessModel>("ListFitnessModel") as ListFitnessModel
+        val listFitnessModel = intent.getParcelableExtra<FitnessModel>("ListFitnessModel") as FitnessModel
         Glide.with(applicationContext)
             .load(listFitnessModel.photoUrl)
             .into(findViewById(R.id.photoFitness))
-        findViewById<TextView>(R.id.nameFitness).text = listFitnessModel.nama
+        findViewById<TextView>(R.id.nameFitness).text = listFitnessModel.name
         findViewById<TextView>(R.id.description).text= listFitnessModel.description.replace("\\n", "\n")
 
     }

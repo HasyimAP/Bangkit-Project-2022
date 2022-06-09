@@ -51,4 +51,6 @@
     <string name="kandungan_nutrisi">Kandungan Nutrisi :</string>
     <string name="nama_gerakan_fitness">Nama Gerakan Fitness</string>
     <string name="deskripsi">Deskripsi</string>
+    <string name="food_photo">Food Photo</string>
+    <string name="fitness_photo">Fitness Photo</string>
 </resources>

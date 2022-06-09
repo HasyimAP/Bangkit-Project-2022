@@ -44,8 +44,13 @@ class FoodListActivity : AppCompatActivity() {
             rvFood.adapter = adapter
         }
 
-        listViewModel.setFood()
+
         showLoading(true)
+
+        listViewModel.getUser().observe(this) { user ->
+            listViewModel.setFood(user.token)
+        }
+
         listViewModel.getFood().observe(this) {
             if (it != null) {
                 adapter.setList(it)

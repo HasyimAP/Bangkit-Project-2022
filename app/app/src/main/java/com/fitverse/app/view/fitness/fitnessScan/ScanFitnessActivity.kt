@@ -1,7 +1,6 @@
-package com.fitverse.app.view.fitness
+package com.fitverse.app.view.fitness.fitnessScan
 
 import android.Manifest
-import android.R.attr.button
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,7 +15,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.DrawableCompat
 import com.fitverse.app.databinding.ActivityScanFitnessBinding
 import com.fitverse.app.ml.WorkoutModel
-import com.fitverse.app.view.scanResult.ScanResultActivity
+import com.fitverse.app.view.food.foodScan.ScanFoodResultActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
@@ -123,7 +122,7 @@ class ScanFitnessActivity : AppCompatActivity() {
                 classes[maxPos2], confidences[maxPos2] * 100,
                 classes[maxPos3], confidences[maxPos3] * 100)
 
-            val intent = Intent(this@ScanFitnessActivity, ScanResultActivity::class.java)
+            val intent = Intent(this@ScanFitnessActivity, ScanFitnessResultActivity::class.java)
             intent.putExtra("result", hasilScan)
             intent.putExtra("list_akurasi", listAkurasi)
             startActivity(intent)

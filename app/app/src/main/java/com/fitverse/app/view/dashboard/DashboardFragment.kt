@@ -10,10 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.databinding.FragmentDashboardBinding
 import com.fitverse.app.view.comingSoon.ComingSoonActivity
 import com.fitverse.app.view.fitness.FitnessListActivity
-import com.fitverse.app.view.fitness.ScanFitnessActivity
+import com.fitverse.app.view.fitness.fitnessScan.ScanFitnessActivity
 import com.fitverse.app.view.food.FoodListActivity
-import com.fitverse.app.view.food.ScanFoodActivity
-import com.fitverse.app.view.main.MainActivity
+import com.fitverse.app.view.food.foodScan.ScanFoodActivity
 
 class DashboardFragment : Fragment() {
 

@@ -1,5 +1,6 @@
 package com.fitverse.app.model
 
+import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -7,6 +8,30 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+
+
+//class UserPreference constructor(context: Context) {
+//    private val pref = context.getSharedPreferences("pref", Context.MODE)
+//    private val userToken = "Token"
+//    private val userIsLogin = "isLogin"
+//
+//    var token: String
+//        set(value) {
+//            pref.edit()
+//                .putString(userToken, value)
+//                .apply()
+//        }
+//        get() = pref.getString(userToken, "").toString()
+//
+//    var isLogin: Boolean
+//        set(value) {
+//            pref.edit()
+//                .putBoolean(userIsLogin, value)
+//                .apply()
+//        }
+//        get() = pref.getBoolean(userIsLogin, false)
+//}
+
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
     private val THEME_KEY = booleanPreferencesKey("theme_setting")
@@ -27,10 +52,8 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
         return dataStore.data.map { preferences ->
             UserModel(
                 preferences[USER_ID_KEY] ?:"",
-                preferences[EMAIL_KEY] ?:"",
-                preferences[PASS_KEY] ?:"",
                 preferences[NAME_KEY] ?:"",
-                preferences[JENIS_KELAMIN_KEY] ?:"",
+                preferences[TOKEN_KEY] ?:"",
                 preferences[STATE_KEY] ?: false
             )
         }
@@ -38,11 +61,9 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
 
     suspend fun saveUser(user: UserModel) {
         dataStore.edit { preferences ->
-            preferences[USER_ID_KEY] = user.id_user
-            preferences[EMAIL_KEY] = user.email
-            preferences[PASS_KEY] = user.pass
-            preferences[NAME_KEY] = user.nama_user
-            preferences[JENIS_KELAMIN_KEY] = user.jenis_kelamin
+            preferences[USER_ID_KEY] = user.id
+            preferences[TOKEN_KEY] = user.token
+            preferences[NAME_KEY] = user.name
             preferences[STATE_KEY] = user.isLogin
         }
     }
@@ -62,14 +83,10 @@ class UserPreference private constructor(private val dataStore: DataStore<Prefer
     companion object {
         @Volatile
         private var INSTANCE: UserPreference? = null
-
-        private val USER_ID_KEY = stringPreferencesKey("id_user")
-        private val EMAIL_KEY = stringPreferencesKey("email")
-        private val PASS_KEY = stringPreferencesKey("pass")
-        private val NAME_KEY = stringPreferencesKey("nama_user")
-        private val JENIS_KELAMIN_KEY = stringPreferencesKey("jenis_kelamin")
-        private val STATE_KEY = booleanPreferencesKey("state")
-
+        private val STATE_KEY = booleanPreferencesKey("isLogin")
+        private val USER_ID_KEY = stringPreferencesKey("id")
+        private val TOKEN_KEY = stringPreferencesKey("token")
+        private val NAME_KEY = stringPreferencesKey("name")
 
         fun getInstance(dataStore: DataStore<Preferences>): UserPreference {
             return INSTANCE ?: synchronized(this) {

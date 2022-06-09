@@ -9,7 +9,6 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.R
-import com.fitverse.app.preferences.SettingPreferences
 import androidx.datastore.preferences.preferencesDataStore
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.model.UserPreference
