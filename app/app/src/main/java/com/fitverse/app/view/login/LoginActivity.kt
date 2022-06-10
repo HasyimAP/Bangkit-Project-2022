@@ -22,6 +22,7 @@ import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.LoginResponse
 import com.fitverse.app.view.main.MainActivity
+import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -50,6 +51,8 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         }
+
+
 
         binding.apply {
             Register.setOnClickListener{
@@ -105,6 +108,7 @@ class LoginActivity : AppCompatActivity() {
                                         loginViewModel.saveUser(UserModel(body.id, body.name, body.token, true))
 
                                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                        intent.putExtra("nama_user", body.name)
                                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                         startActivity(intent)
                                         finish()

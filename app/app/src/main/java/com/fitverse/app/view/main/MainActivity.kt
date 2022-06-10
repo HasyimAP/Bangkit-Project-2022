@@ -20,6 +20,7 @@ import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityMainBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.login.LoginActivity
+import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.settings.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -28,6 +29,8 @@ private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(na
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreference.getInstance(dataStore)
@@ -46,7 +49,19 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+
+//        val name = intent.getStringExtra("nama_user")
+////                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+//        val mFragmentManager = supportFragmentManager
+//        val mFragmentTransaction = mFragmentManager.beginTransaction()
+//        val mFragment = ProfileFragment()
+//
+//        val mBundle = Bundle()
+//
+//        mBundle.putString("nama_user",name)
+//        mFragment.arguments = mBundle
+//        mFragmentTransaction.add(mFragment).commit()
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
