@@ -2,12 +2,12 @@
 ## FitVerse Team
 
 ### Team Member
-- M. Hasyim Abdillah P. (M2012J1310) - ML - Telkom University
-- Jiwa Sambhuwara (M2012J1319) - ML - Telkom University
-- Anak Agung Gede Iswara Andika Parayana (A2174J1721) - MD - STMIK Primakara
-- Komang Andika Widiantara (A2014J1397) - MD  - Udayana University
-- Diky Wahyu Kusuma Budi (C2014J1368) -CC - Udayana University 
-- Neysa Amelia Hutagalung (C2014J1374) - CC - Udayana University 
+- M. Hasyim Abdillah P. (M2012J1310) - Machine Learning - Telkom University
+- Jiwa Sambhuwara (M2012J1319) - Machine Learning - Telkom University
+- Anak Agung Gede Iswara Andika Parayana (A2174J1721) - Mobile Development - STMIK Primakara
+- Komang Andika Widiantara (A2014J1397) - Mobile Development - Udayana University
+- Diky Wahyu Kusuma Budi (C2014J1368) - Cloud Computing - Udayana University 
+- Neysa Amelia Hutagalung (C2014J1374) - Cloud Computing - Udayana University 
 
 ### Abstract
 In 2021, Indonesia had 19.5 million cases of diabetes and is predicted to increase to 28.6 million
