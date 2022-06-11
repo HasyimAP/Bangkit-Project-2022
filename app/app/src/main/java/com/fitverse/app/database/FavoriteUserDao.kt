@@ -31,4 +31,14 @@ interface FavoriteUserDao {
     @Query("DELETE FROM favorite_food WHERE favorite_food.id= :id")
     suspend fun deleteFavoriteFood(id: Int): Int
 
+    //recent scan query
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun addRecentScan(recentScanEntity: RecentScanEntity)
+
+    @Query("SELECT * from recent_scan")
+    fun getRecentScan(): LiveData<List<RecentScanEntity>>
+
+    @Query("SELECT count(*) FROM recent_scan WHERE recent_scan.id = :id")
+    suspend fun checkRecentScan(id: Int): Int
+
 }

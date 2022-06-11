@@ -12,6 +12,7 @@ import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityScanFitnessResultBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.fitness.dataStore
+import com.fitverse.app.view.history.HistoryViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -21,7 +22,7 @@ class ScanFitnessResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFitnessResultBinding
     private lateinit var viewModel: ScanFitnessResultViewModel
     private lateinit var favoriteFitnessViewModel: FavoriteFitnessViewModel
-
+    private lateinit var historyViewModel: HistoryViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityScanFitnessResultBinding.inflate(layoutInflater)
@@ -35,6 +36,7 @@ class ScanFitnessResultActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[ScanFitnessResultViewModel::class.java]
         favoriteFitnessViewModel = ViewModelProvider(this)[FavoriteFitnessViewModel::class.java]
+        historyViewModel = ViewModelProvider(this)[HistoryViewModel::class.java]
         if (name != null) {
             viewModel.getUser().observe(this) { user ->
                 viewModel.setFitnessDetail(user.token,name)
@@ -73,6 +75,8 @@ class ScanFitnessResultActivity : AppCompatActivity() {
                     }
                 }
             }
+            historyViewModel.addRecentScan(id1, name1,foto,desc )
+
             binding.toggleFavorite.setOnClickListener {
                 isChecked = !isChecked
                 if (isChecked) {
