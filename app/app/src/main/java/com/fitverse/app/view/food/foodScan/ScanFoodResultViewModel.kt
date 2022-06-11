@@ -14,7 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class ScanFoodResultViewModel (private val pref: UserPreference) : ViewModel() {
-    val user = MutableLiveData<ArrayList<FoodModel>>()
+    val food = MutableLiveData<FoodModel>()
 
     fun getUser(): LiveData<UserModel> {
         return pref.getUser().asLiveData()
@@ -23,25 +23,25 @@ class ScanFoodResultViewModel (private val pref: UserPreference) : ViewModel() {
     fun setFoodDetail(token: String ,name: String) {
         ApiConfig.getApiService()
             .findFoodDetail("Bearer $token",name)
-            .enqueue(object : Callback<ListFoodResponse> {
+            .enqueue(object : Callback<FoodDetailResponse> {
                 override fun onResponse(
-                    call: Call<ListFoodResponse>,
-                    response: Response<ListFoodResponse>
+                    call: Call<FoodDetailResponse>,
+                    response: Response<FoodDetailResponse>
                 ) {
                     if (response.code() == 200) {
-                        user.postValue(response.body()?.data)
+                        food.postValue(response.body()?.data)
                     }
                 }
 
-                override fun onFailure(call: Call<ListFoodResponse>, t: Throwable) {
+                override fun onFailure(call: Call<FoodDetailResponse>, t: Throwable) {
                     Log.e(ContentValues.TAG, "onFailure: ${t.message}")
                 }
 
             })
     }
 
-    fun getFoodDetail(): LiveData<ArrayList<FoodModel>> {
-        return user
+    fun getFoodDetail(): LiveData<FoodModel> {
+        return food
     }
 
 }

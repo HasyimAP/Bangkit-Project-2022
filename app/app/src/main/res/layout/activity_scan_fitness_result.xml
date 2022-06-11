@@ -6,15 +6,54 @@
     android:layout_height="match_parent"
     tools:context=".view.fitness.fitnessScan.ScanFitnessResultActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvFitnessResult"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ToggleButton
+        android:id="@+id/toggleFavorite"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/save_scan"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:textOff=" "
+        android:textOn=" "
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/photoFitness"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/fitness_result_adapter" />
+        android:transitionName="profile"
+        android:contentDescription="@string/fitness_photo" />
+
+    <TextView
+        android:id="@+id/fitnessName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:text="@string/nama_makanan"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoFitness" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:paddingHorizontal="20dp"
+        android:text="@string/tes"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fitnessName" />
 
     <ProgressBar
         android:id="@+id/progressBar"

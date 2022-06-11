@@ -10,13 +10,13 @@ import com.fitverse.app.api.ApiConfig
 import com.fitverse.app.model.FitnessModel
 import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
-import com.fitverse.app.response.ListFitnessResponse
+import com.fitverse.app.response.FitnessDetailResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class ScanFitnessResultViewModel (private val pref: UserPreference) : ViewModel() {
-    val user = MutableLiveData<ArrayList<FitnessModel>>()
+    val fitness = MutableLiveData<FitnessModel>()
 
     fun getUser(): LiveData<UserModel> {
         return pref.getUser().asLiveData()
@@ -25,24 +25,25 @@ class ScanFitnessResultViewModel (private val pref: UserPreference) : ViewModel(
     fun setFitnessDetail(token: String ,name: String) {
         ApiConfig.getApiService()
             .findFitnessDetail("Bearer $token",name)
-            .enqueue(object : Callback<ListFitnessResponse> {
+            .enqueue(object : Callback<FitnessDetailResponse> {
                 override fun onResponse(
-                    call: Call<ListFitnessResponse>,
-                    response: Response<ListFitnessResponse>
+                    call: Call<FitnessDetailResponse>,
+                    response: Response<FitnessDetailResponse>
                 ) {
                     if (response.code() == 200) {
-                        user.postValue(response.body()?.data)
+                        fitness.postValue(response.body()?.data)
                     }
                 }
 
-                override fun onFailure(call: Call<ListFitnessResponse>, t: Throwable) {
+                override fun onFailure(call: Call<FitnessDetailResponse>, t: Throwable) {
                     Log.e(ContentValues.TAG, "onFailure: ${t.message}")
                 }
+
             })
     }
 
-    fun getFitnessDetail(): LiveData<ArrayList<FitnessModel>> {
-        return user
+    fun getFitnessDetail(): LiveData<FitnessModel> {
+        return fitness
     }
 
 }

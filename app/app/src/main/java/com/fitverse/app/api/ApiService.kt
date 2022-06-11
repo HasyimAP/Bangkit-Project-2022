@@ -32,15 +32,15 @@ interface ApiService {
         @Header("Authorization") token: String,
     ): Call<ListFitnessResponse>
 
-    @GET("foods")
+    @GET("scanfood")
     fun findFoodDetail(
         @Header("Authorization") token: String,
         @Query("name") name: String
-    ): Call<ListFoodResponse>
+    ): Call<FoodDetailResponse>
 
-    @GET("fitness")
+    @GET("scan")
     fun findFitnessDetail(
         @Header("Authorization") token: String,
         @Query("name") name: String
-    ): Call<ListFitnessResponse>
+    ): Call<FitnessDetailResponse>
 }
