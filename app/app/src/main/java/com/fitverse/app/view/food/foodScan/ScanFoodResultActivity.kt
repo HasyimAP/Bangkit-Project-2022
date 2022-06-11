@@ -5,18 +5,24 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityScanFoodResultBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.food.dataStore
+import com.fitverse.app.view.scanFavorite.FavoriteFitnessViewModel
+import com.fitverse.app.view.scanFavorite.FavoriteFoodViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class ScanFoodResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFoodResultBinding
     private lateinit var viewModel: ScanFoodResultViewModel
+    private lateinit var favoriteFoodViewModel: FavoriteFoodViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +36,7 @@ class ScanFoodResultActivity : AppCompatActivity() {
             this,
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[ScanFoodResultViewModel::class.java]
-
+        favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
         if (name != null) {
             viewModel.getUser().observe(this) { user ->
                     viewModel.setFoodDetail(user.token,name)
@@ -40,6 +46,10 @@ class ScanFoodResultActivity : AppCompatActivity() {
         showLoading(true)
         viewModel.getFoodDetail().observe(this) {
             showLoading(false)
+            var name1 = it.name
+            var desc = it.description
+            var id1 = it.id
+            var foto = it.photoUrl
             binding.apply {
                 resultname.text = it.name
                 description.text = it.description.replace("\\n","\n")
@@ -47,6 +57,32 @@ class ScanFoodResultActivity : AppCompatActivity() {
                     .load(it.photoUrl)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(photoFood)
+            }
+            var isChecked = false
+            CoroutineScope(Dispatchers.IO).launch {
+                val count = favoriteFoodViewModel.checkFavorite(it.id)
+                withContext(Dispatchers.Main) {
+                    if (count != null) {
+                        if (count > 0) {
+                            binding.toggleFavorite.isChecked = true
+                            isChecked = true
+                        } else {
+                            binding.toggleFavorite.isChecked = false
+                            isChecked = false
+                        }
+                    }
+                }
+            }
+            binding.toggleFavorite.setOnClickListener {
+                isChecked = !isChecked
+                if (isChecked) {
+                    favoriteFoodViewModel.addToFavorite(id1, name1,foto,desc )
+                    Toast.makeText(this, "Add $name1 to Favorite", Toast.LENGTH_LONG).show()
+                } else {
+                    favoriteFoodViewModel.deleteFromFavorite(id1)
+                    Toast.makeText(this, "Remove $name1 from Favorite", Toast.LENGTH_LONG).show()
+                }
+                binding.toggleFavorite.isChecked = isChecked
             }
         }
     }

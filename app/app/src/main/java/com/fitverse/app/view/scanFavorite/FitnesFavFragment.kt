@@ -7,48 +7,52 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.fitverse.app.database.FavoriteFoodEntity
-import com.fitverse.app.databinding.FragmentFoodFavBinding
-import com.fitverse.app.model.FoodModel
+import com.fitverse.app.database.FavoriteFitnessEntity
+import com.fitverse.app.databinding.FragmentFitnesFavBinding
+import com.fitverse.app.model.FitnessModel
 
-class FoodFavFragment : Fragment() {
 
-    private var _binding: FragmentFoodFavBinding? = null
-    private lateinit var adapterFavFood: AdapterFavFood
-    private lateinit var favoriteFoodViewModel: FavoriteFoodViewModel
+class FitnesFavFragment : Fragment() {
+
+    private var _binding: FragmentFitnesFavBinding? = null
+    private lateinit var adapterFavFitness: AdapterFavFitness
+    private lateinit var favoriteFitnessViewModel: FavoriteFitnessViewModel
     val bundle = arguments
 
     private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFoodFavBinding.inflate(inflater, container, false)
 
-        adapterFavFood = AdapterFavFood()
-        adapterFavFood.notifyDataSetChanged()
-        favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
+        _binding = FragmentFitnesFavBinding.inflate(inflater, container, false)
+
+        adapterFavFitness = AdapterFavFitness()
+        adapterFavFitness.notifyDataSetChanged()
+        favoriteFitnessViewModel = ViewModelProvider(this)[FavoriteFitnessViewModel::class.java]
 
         binding.apply {
             recyleView.layoutManager = LinearLayoutManager(activity)
             recyleView.setHasFixedSize(true)
-            recyleView.adapter = adapterFavFood
+            recyleView.adapter = adapterFavFitness
 
         }
-        favoriteFoodViewModel.getFavorite()?.observe(viewLifecycleOwner) {
+        favoriteFitnessViewModel.getFavorite()?.observe(viewLifecycleOwner) {
             if (it != null) {
 
                 val listFavorite = mapList(it)
-                adapterFavFood.setList(listFavorite)
+                adapterFavFitness.setList(listFavorite)
+//                adapter.updateItems(listFavorite)
             }
         }
         return binding.root
     }
 
-    private fun mapList(users: List<FavoriteFoodEntity>): ArrayList<FoodModel> {
-        val listUsers = ArrayList<FoodModel>()
+    private fun mapList(users: List<FavoriteFitnessEntity>): ArrayList<FitnessModel> {
+        val listUsers = ArrayList<FitnessModel>()
         for (user in users) {
-            val userMap = FoodModel(
+            val userMap = FitnessModel(
                 user.id,
                 user.name,
                 user.photoUrl,
