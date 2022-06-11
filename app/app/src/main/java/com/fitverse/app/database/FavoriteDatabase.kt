@@ -8,7 +8,8 @@ import androidx.room.RoomDatabase
 @Database(entities = [
     FavoriteFitnessEntity::class,
     FavoriteFoodEntity::class,
-    RecentScanEntity::class],
+    RecentFitnessEntity::class,
+    RecentFoodEntity::class],
     version = 1
 )
 abstract class FavoriteDatabase: RoomDatabase() {

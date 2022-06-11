@@ -1,4 +1,4 @@
-package com.fitverse.app.view.food
+package com.fitverse.app.view.history.food
 
 import android.app.Activity
 import android.content.Intent
@@ -8,14 +8,16 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.fitverse.app.databinding.FoodListBinding
+import com.fitverse.app.databinding.RecentFoodAdapterBinding
 import com.fitverse.app.model.FoodModel
+import com.fitverse.app.view.food.DetailFoodActivity
 import java.util.*
 
-class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
+class AdapterRecentFood  : RecyclerView.Adapter<AdapterRecentFood.StoryViewHolder>(){
     private val list = ArrayList<FoodModel>()
 
     private var onItemClickCallback: OnItemClickCallback? = null
+//    private var recentFoodViewModel: RecentFoodViewModel
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
@@ -27,7 +29,7 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
         notifyDataSetChanged()
     }
 
-    inner class StoryViewHolder(private val binding: FoodListBinding) :
+    inner class StoryViewHolder(private val binding: RecentFoodAdapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(items: FoodModel) {
             binding.root.setOnClickListener {
@@ -53,12 +55,17 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
                             )
                     itemView.context.startActivity(intent, optionsCompat.toBundle())
                 }
+
+                deleteButton.setOnClickListener {
+
+                }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
-        val view = FoodListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+
+        val view = RecentFoodAdapterBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return StoryViewHolder((view))
     }
 

@@ -1,4 +1,4 @@
-package com.fitverse.app.view.food
+package com.fitverse.app.view.history.fitness
 
 import android.app.Activity
 import android.content.Intent
@@ -8,28 +8,30 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
-import com.fitverse.app.databinding.FoodListBinding
-import com.fitverse.app.model.FoodModel
+import com.fitverse.app.databinding.RecentFitnessAdapterBinding
+import com.fitverse.app.model.FitnessModel
+import com.fitverse.app.view.fitness.DetailFitnessActivity
 import java.util.*
 
-class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
-    private val list = ArrayList<FoodModel>()
+class AdapterRecentFitness  : RecyclerView.Adapter<AdapterRecentFitness.StoryViewHolder>(){
+    private val list = ArrayList<FitnessModel>()
 
     private var onItemClickCallback: OnItemClickCallback? = null
+//    private var recentFitnessViewModel: RecentFitnessViewModel
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
-    fun setList(items: ArrayList<FoodModel>){
+    fun setList(items: ArrayList<FitnessModel>){
         list.clear()
         list.addAll(items)
         notifyDataSetChanged()
     }
 
-    inner class StoryViewHolder(private val binding: FoodListBinding) :
+    inner class StoryViewHolder(private val binding: RecentFitnessAdapterBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(items: FoodModel) {
+        fun bind(items: FitnessModel) {
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(items)
             }
@@ -38,27 +40,32 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
                         .load(items.photoUrl)
                         .transition(DrawableTransitionOptions.withCrossFade())
                         .into(ivPhoto)
-                tvNameFood.text = items.name
+                tvNameFitness.text = items.name
 
                 itemView.setOnClickListener {
-                    val intent = Intent(itemView.context, DetailFoodActivity::class.java)
+                    val intent = Intent(itemView.context, DetailFitnessActivity::class.java)
                     intent.putExtra("ListStoryModel", items)
 
                     val optionsCompat: ActivityOptionsCompat =
                         ActivityOptionsCompat.makeSceneTransitionAnimation(
                             itemView.context as Activity,
                             androidx.core.util.Pair(ivPhoto, "profile"),
-                            androidx.core.util.Pair(tvNameFood, "name"),
+                            androidx.core.util.Pair(tvNameFitness, "name"),
 
                             )
                     itemView.context.startActivity(intent, optionsCompat.toBundle())
+                }
+
+                deleteButton.setOnClickListener {
+
                 }
             }
         }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryViewHolder {
-        val view = FoodListBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+
+        val view = RecentFitnessAdapterBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return StoryViewHolder((view))
     }
 
@@ -69,6 +76,6 @@ class AdapterFood  : RecyclerView.Adapter<AdapterFood.StoryViewHolder>()  {
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickCallback {
-        fun onItemClicked(user: FoodModel)
+        fun onItemClicked(user: FitnessModel)
     }
 }

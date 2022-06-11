@@ -11,7 +11,7 @@ import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityScanFoodResultBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.food.dataStore
-import com.fitverse.app.view.scanFavorite.FavoriteFitnessViewModel
+import com.fitverse.app.view.history.food.RecentFoodViewModel
 import com.fitverse.app.view.scanFavorite.FavoriteFoodViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -23,6 +23,7 @@ class ScanFoodResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFoodResultBinding
     private lateinit var viewModel: ScanFoodResultViewModel
     private lateinit var favoriteFoodViewModel: FavoriteFoodViewModel
+    private lateinit var recentFoodViewModel: RecentFoodViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +38,8 @@ class ScanFoodResultActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[ScanFoodResultViewModel::class.java]
         favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
+        recentFoodViewModel = ViewModelProvider(this)[RecentFoodViewModel::class.java]
+
         if (name != null) {
             viewModel.getUser().observe(this) { user ->
                     viewModel.setFoodDetail(user.token,name)
@@ -73,6 +76,8 @@ class ScanFoodResultActivity : AppCompatActivity() {
                     }
                 }
             }
+            recentFoodViewModel.addRecentFood(id1, name1,foto,desc )
+
             binding.toggleFavorite.setOnClickListener {
                 isChecked = !isChecked
                 if (isChecked) {
