@@ -27,9 +27,21 @@ interface ApiService {
         @Header("Authorization") token: String,
     ): Call<ListFoodResponse>
 
+    @GET("foods")
+    fun searchFood(
+        @Header("Authorization") token: String,
+        @Query("name") name: String
+    ): Call<ListFoodResponse>
+
     @GET("fitness")
     fun getFitness(
         @Header("Authorization") token: String,
+    ): Call<ListFitnessResponse>
+
+    @GET("fitness")
+    fun searchFitness(
+        @Header("Authorization") token: String,
+        @Query("name") name: String
     ): Call<ListFitnessResponse>
 
     @GET("scanfood")

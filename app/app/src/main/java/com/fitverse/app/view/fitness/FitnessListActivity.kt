@@ -3,6 +3,7 @@ package com.fitverse.app.view.fitness
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.widget.Toast
 import androidx.datastore.core.DataStore
@@ -53,10 +54,37 @@ class FitnessListActivity : AppCompatActivity() {
             if (it != null) {
                 adapter.setList(it)
                 showLoading(false)
-//                Toast.makeText(applicationContext,("${it[1]}"), Toast.LENGTH_SHORT).show()
-            } else {
+                emptyData(false)
+            }
+            if (it.isEmpty()) {
                 showLoading(false)
-                Toast.makeText(applicationContext, ("The Data is Empty"), Toast.LENGTH_SHORT).show()
+                emptyData(true)
+            }
+        }
+
+        binding.buttonSearch.setOnClickListener {
+            searchFitness()
+        }
+
+        binding.etQuery.setOnKeyListener{ _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER){
+                searchFitness()
+                return@setOnKeyListener true
+            }
+            return@setOnKeyListener false
+        }
+    }
+
+    private fun searchFitness(){
+        binding.apply {
+            val query = etQuery.text.toString()
+            if (query.isEmpty()){
+                etQuery.error = "Field ini tidak boleh kosong"
+                return
+            }
+            showLoading(true)
+            fitnessListViewModel.getUser().observe(this@FitnessListActivity) { user ->
+                fitnessListViewModel.setSearchFitness(user.token,query)
             }
         }
     }
@@ -64,6 +92,11 @@ class FitnessListActivity : AppCompatActivity() {
     private fun showLoading(isLoading: Boolean) {
         binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
+
+    private fun emptyData(state: Boolean) {
+        binding.emptyData.visibility = if (state) View.VISIBLE else View.GONE
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

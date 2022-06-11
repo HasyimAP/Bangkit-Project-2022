@@ -46,18 +46,16 @@ class DetailFoodActivity : AppCompatActivity() {
             ViewModelFactory(UserPreference.getInstance(dataStore))
         )[ScanFoodResultViewModel::class.java]
         favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
-        if ( listFoodModel.name!= null) {
-            viewModel.getUser().observe(this) { user ->
-                viewModel.setFoodDetail(user.token, listFoodModel.name)
-            }
+        viewModel.getUser().observe(this) { user ->
+            viewModel.setFoodDetail(user.token, listFoodModel.name)
         }
 //        showLoading(true)
         viewModel.getFoodDetail().observe(this) {
 //            showLoading(false)
-            var name1 = it.name
-            var desc1 = it.description
-            var id1 = it.id
-            var foto1 = it.photoUrl
+            val name1 = it.name
+            val desc1 = it.description
+            val id1 = it.id
+            val foto1 = it.photoUrl
 
             binding.apply {
                 nameFood.text = it.name
@@ -67,6 +65,7 @@ class DetailFoodActivity : AppCompatActivity() {
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(photoFood)
             }
+
             var isChecked = false
             CoroutineScope(Dispatchers.IO).launch {
                 val count = favoriteFoodViewModel.checkFavorite(it.id)
@@ -82,6 +81,7 @@ class DetailFoodActivity : AppCompatActivity() {
                     }
                 }
             }
+
             binding.toggleFavorite.setOnClickListener {
                 isChecked = !isChecked
                 if (isChecked) {

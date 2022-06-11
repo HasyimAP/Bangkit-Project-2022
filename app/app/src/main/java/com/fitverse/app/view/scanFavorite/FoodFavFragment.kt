@@ -10,11 +10,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fitverse.app.database.FavoriteFoodEntity
 import com.fitverse.app.databinding.FragmentFoodFavBinding
 import com.fitverse.app.model.FoodModel
+import com.fitverse.app.view.food.AdapterFood
 
 class FoodFavFragment : Fragment() {
 
     private var _binding: FragmentFoodFavBinding? = null
-    private lateinit var adapterFavFood: AdapterFavFood
+    private lateinit var adapterFavFood: AdapterFood
     private lateinit var favoriteFoodViewModel: FavoriteFoodViewModel
     val bundle = arguments
 
@@ -25,7 +26,7 @@ class FoodFavFragment : Fragment() {
     ): View? {
         _binding = FragmentFoodFavBinding.inflate(inflater, container, false)
 
-        adapterFavFood = AdapterFavFood()
+        adapterFavFood = AdapterFood()
         adapterFavFood.notifyDataSetChanged()
         favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
 

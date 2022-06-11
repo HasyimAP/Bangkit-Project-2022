@@ -5,16 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.food.DetailFoodActivity">
-<!--    <ImageView-->
-<!--        android:id="@+id/photoFood"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:contentDescription="@string/photo"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        android:background="@drawable/image_result"-->
-<!--        tools:srcCompat="@drawable/image_result" />-->
 
     <ImageView
         android:id="@+id/photoFood"
@@ -69,8 +59,8 @@
         android:background="@drawable/save_scan"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:textOff=" "
-        android:textOn=" "
+        android:textOff=""
+        android:textOn=""
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"

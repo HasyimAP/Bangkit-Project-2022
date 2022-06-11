@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.fitness.FitnessListViewModel
 import com.fitverse.app.view.fitness.fitnessScan.ScanFitnessResultViewModel
-import com.fitverse.app.view.food.ListViewModel
+import com.fitverse.app.view.food.FoodListViewModel
 import com.fitverse.app.view.food.foodScan.ScanFoodResultViewModel
 import com.fitverse.app.view.login.LoginViewModel
 import com.fitverse.app.view.main.MainViewModel
@@ -23,8 +23,8 @@ class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.New
             modelClass.isAssignableFrom(LoginViewModel::class.java) -> {
                 LoginViewModel(pref) as T
             }
-            modelClass.isAssignableFrom(ListViewModel::class.java) -> {
-                ListViewModel(pref) as T
+            modelClass.isAssignableFrom(FoodListViewModel::class.java) -> {
+                FoodListViewModel(pref) as T
             }
             modelClass.isAssignableFrom(FitnessListViewModel::class.java) -> {
                 FitnessListViewModel(pref) as T

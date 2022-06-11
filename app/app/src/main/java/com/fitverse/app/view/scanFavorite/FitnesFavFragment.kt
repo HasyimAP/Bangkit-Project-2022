@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fitverse.app.database.FavoriteFitnessEntity
 import com.fitverse.app.databinding.FragmentFitnesFavBinding
 import com.fitverse.app.model.FitnessModel
+import com.fitverse.app.view.fitness.AdapterFitness
 
 
 class FitnesFavFragment : Fragment() {
 
     private var _binding: FragmentFitnesFavBinding? = null
-    private lateinit var adapterFavFitness: AdapterFavFitness
+    private lateinit var adapterFavFitness: AdapterFitness
     private lateinit var favoriteFitnessViewModel: FavoriteFitnessViewModel
     val bundle = arguments
 
@@ -28,7 +29,7 @@ class FitnesFavFragment : Fragment() {
 
         _binding = FragmentFitnesFavBinding.inflate(inflater, container, false)
 
-        adapterFavFitness = AdapterFavFitness()
+        adapterFavFitness = AdapterFitness()
         adapterFavFitness.notifyDataSetChanged()
         favoriteFitnessViewModel = ViewModelProvider(this)[FavoriteFitnessViewModel::class.java]
 

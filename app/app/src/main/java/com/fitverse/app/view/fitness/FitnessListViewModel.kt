@@ -40,6 +40,23 @@ class FitnessListViewModel(private val pref: UserPreference) : ViewModel() {
             })
     }
 
+    fun setSearchFitness( token: String, query: String){
+        ApiConfig.getApiService().searchFitness("Bearer $token",query)
+            .enqueue(object : Callback<ListFitnessResponse>{
+                override fun onResponse(
+                    call: Call<ListFitnessResponse>,
+                    response: Response<ListFitnessResponse>
+                ) {
+                    if (response.isSuccessful){
+                        listFitness.postValue(response.body()?.data)
+                    }
+                }
+                override fun onFailure(call: Call<ListFitnessResponse>, t: Throwable) {
+                    t.message?.let { Log.d( "Failure", it) }
+                }
+            })
+    }
+
     fun getFitness(): LiveData<ArrayList<FitnessModel>> {
         return listFitness
     }

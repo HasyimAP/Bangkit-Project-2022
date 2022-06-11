@@ -30,12 +30,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreference.getInstance(dataStore)
-        viewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
-        viewModel.getThemeSettings().observe(this
+        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
+        mainViewModel.getThemeSettings().observe(this
         ) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -46,35 +44,20 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val name = intent.getStringExtra("nama_user")
-////                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
-//        val mFragmentManager = supportFragmentManager
-//        val mFragmentTransaction = mFragmentManager.beginTransaction()
-//        val mFragment = ProfileFragment()
-//
-//        val mBundle = Bundle()
-//
-//        mBundle.putString("nama_user",name)
-//        mFragment.arguments = mBundle
-//        mFragmentTransaction.add(mFragment).commit()
-
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-
     }
 
 
