@@ -18,11 +18,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.api.ApiConfig
 import com.fitverse.app.databinding.ActivityLoginBinding
-import com.fitverse.app.model.LoginModel
 import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.LoginResponse
 import com.fitverse.app.view.main.MainActivity
+import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -49,9 +49,10 @@ class LoginActivity : AppCompatActivity() {
             if (user.isLogin) {
                 val intent = Intent(this@LoginActivity, MainActivity::class.java)
                 startActivity(intent)
-//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
             }
         }
+
+
 
         binding.apply {
             Register.setOnClickListener{
@@ -76,16 +77,17 @@ class LoginActivity : AppCompatActivity() {
 
             binding.loginButton.setOnClickListener {
                 val email = binding.emailEditText.text.toString()
-                val pass = binding.passwordEditText.text.toString()
+                val password = binding.passwordEditText.text.toString()
                 when {
                     email.isEmpty() -> {
                         binding.emailEditTextLayout.error = "Masukkan email"
                     }
-                    pass.isEmpty() -> {
+                    password.isEmpty() -> {
                         binding.passwordEditTextLayout.error = "Masukkan password"
                     }
                     else -> {
-                        ApiConfig.getApiService().login(email,pass)
+                        showLoading(true)
+                        ApiConfig.getApiService().login(email,password)
                             .enqueue(object : Callback<LoginResponse> {
 
                                 override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
@@ -96,17 +98,24 @@ class LoginActivity : AppCompatActivity() {
                                     call: Call<LoginResponse>,
                                     response: Response<LoginResponse>
                                 ) {
-                                    if (response.body()?.message == "success") {
-                                        val body = response.body()?.loginResult as UserModel
+                                    if (response.body()?.error == false) {
+                                        showLoading(false)
 
-                                        loginViewModel.saveUser(UserModel(body.id_user, body.email, body.pass,body.nama_user,body.jenis_kelamin, true))
+                                        Toast.makeText(applicationContext,(response.body()?.message), Toast.LENGTH_SHORT).show()
 
-//                                        Toast.makeText(applicationContext,("login success"), Toast.LENGTH_SHORT).show()
+                                        val body = response.body()?.data as UserModel
+
+                                        loginViewModel.saveUser(UserModel(body.id, body.name, body.token, true))
+
                                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                                        intent.putExtra("nama_user", body.name)
                                         intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK
                                         startActivity(intent)
                                         finish()
-                                    } else if (response.body()?.message == "error"){
+
+                                    } else if (response.body()?.error == true){
+                                        showLoading(false)
+
                                         Toast.makeText(this@LoginActivity,("Login failed. Cek Email/Password Anda"), Toast.LENGTH_SHORT).show()
 
                                         Log.d(
@@ -121,6 +130,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+    }
+
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
     }
 
     private fun playAnimation() {

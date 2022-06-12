@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.fitverse.app.databinding.FitnessListBinding
-import com.fitverse.app.model.ListFitnessModel
+import com.fitverse.app.model.FitnessModel
 import java.util.ArrayList
 
 class AdapterFitness  : RecyclerView.Adapter<AdapterFitness.FitnessViewHolder>()  {
-    private val list = ArrayList<ListFitnessModel>()
+    private val list = ArrayList<FitnessModel>()
 
     private var onItemClickCallback: OnItemClickCallback? = null
 
@@ -21,7 +21,7 @@ class AdapterFitness  : RecyclerView.Adapter<AdapterFitness.FitnessViewHolder>()
         this.onItemClickCallback = onItemClickCallback
     }
 
-    fun setList(items: ArrayList<ListFitnessModel>){
+    fun setList(items: ArrayList<FitnessModel>){
         list.clear()
         list.addAll(items)
         notifyDataSetChanged()
@@ -29,7 +29,7 @@ class AdapterFitness  : RecyclerView.Adapter<AdapterFitness.FitnessViewHolder>()
 
     inner class FitnessViewHolder(private val binding: FitnessListBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(items: ListFitnessModel) {
+        fun bind(items: FitnessModel) {
             binding.root.setOnClickListener {
                 onItemClickCallback?.onItemClicked(items)
             }
@@ -38,7 +38,7 @@ class AdapterFitness  : RecyclerView.Adapter<AdapterFitness.FitnessViewHolder>()
                     .load(items.photoUrl)
                     .transition(DrawableTransitionOptions.withCrossFade())
                     .into(ivPhoto)
-                tvNameFitness.text = items.nama
+                tvNameFitness.text = items.name
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailFitnessActivity::class.java)
@@ -70,6 +70,6 @@ class AdapterFitness  : RecyclerView.Adapter<AdapterFitness.FitnessViewHolder>()
     override fun getItemCount(): Int = list.size
 
     interface OnItemClickCallback {
-        fun onItemClicked(user: ListFitnessModel)
+        fun onItemClicked(user: FitnessModel)
     }
 }

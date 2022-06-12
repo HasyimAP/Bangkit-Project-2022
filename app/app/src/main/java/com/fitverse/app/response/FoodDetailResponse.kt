@@ -1,8 +1,9 @@
 package com.fitverse.app.response
 
+import com.fitverse.app.model.FoodModel
+import com.google.gson.annotations.SerializedName
+
 data class FoodDetailResponse (
-    val id_food: Int,
-    val nama: String,
-    val photoUrl: String,
-    val description: String
+    @SerializedName("data")
+    val data: FoodModel
 )

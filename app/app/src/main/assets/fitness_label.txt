@@ -1,8 +1,8 @@
-bench press
-biceps curl
-chest fly machine
-deadlift
-incline bench press
-lat pulldown
-push-up
-tricep pushdown
+Bench Press
+Biceps Curl
+Chest Fly Machine
+Deadlift
+Incline Bench Press
+Lat Pulldown
+Push-Up
+Tricep Pushdown

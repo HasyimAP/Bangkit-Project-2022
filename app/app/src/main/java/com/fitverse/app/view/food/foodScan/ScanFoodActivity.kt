@@ -1,4 +1,4 @@
-package com.fitverse.app.view.food
+package com.fitverse.app.view.food.foodScan
 
 import android.Manifest
 import android.content.Intent
@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.graphics.drawable.DrawableCompat
 import com.fitverse.app.databinding.ActivityScanFoodBinding
 import com.fitverse.app.ml.FoodNutritions
-import com.fitverse.app.view.scanResult.ScanResultActivity
 import org.tensorflow.lite.DataType
 import org.tensorflow.lite.support.tensorbuffer.TensorBuffer
 import java.io.IOException
@@ -123,7 +122,7 @@ class ScanFoodActivity : AppCompatActivity() {
                 classes[maxPos2], confidences[maxPos2] * 100,
                 classes[maxPos3], confidences[maxPos3] * 100)
 
-            val intent = Intent(this@ScanFoodActivity,ScanResultActivity::class.java)
+            val intent = Intent(this@ScanFoodActivity, ScanFoodResultActivity::class.java)
             intent.putExtra("result", hasilScan)
             intent.putExtra("list_akurasi", listAkurasi)
             startActivity(intent)

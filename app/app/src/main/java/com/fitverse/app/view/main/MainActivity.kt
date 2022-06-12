@@ -20,6 +20,7 @@ import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityMainBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.login.LoginActivity
+import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.settings.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -31,8 +32,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val pref = UserPreference.getInstance(dataStore)
-        viewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
-        viewModel.getThemeSettings().observe(this
+        val mainViewModel = ViewModelProvider(this, ViewModelFactory(pref))[MainViewModel::class.java]
+        mainViewModel.getThemeSettings().observe(this
         ) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
@@ -43,23 +44,20 @@ class MainActivity : AppCompatActivity() {
 
         super.onCreate(savedInstanceState)
 
+        viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[MainViewModel::class.java]
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//                Toast.makeText(this, "${user.token}", Toast.LENGTH_SHORT).show()
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
         val appBarConfiguration = AppBarConfiguration(setOf(
             R.id.navigation_dashboard, R.id.navigation_history, R.id.navigation_profile
         ))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
-
-
     }
 
 

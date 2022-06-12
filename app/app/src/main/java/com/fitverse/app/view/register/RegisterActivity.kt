@@ -14,22 +14,18 @@ import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.RadioButton
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.fitverse.app.R
 import com.fitverse.app.api.ApiConfig
-import com.fitverse.app.databinding.ActivityLoginBinding
 import com.fitverse.app.databinding.ActivityRegisterBinding
-import com.fitverse.app.model.RegisterModel
 import com.fitverse.app.response.GeneralResponse
 import com.fitverse.app.view.login.LoginActivity
-import com.fitverse.app.view.main.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
-    private var jenisKelamin: String = ""
+    private var gender: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,11 +45,11 @@ class RegisterActivity : AppCompatActivity() {
             when (view.getId()) {
                 R.id.radio_male ->
                     if (checked) {
-                        jenisKelamin = "Laki-Laki"
+                        gender = "Laki-Laki"
                     }
                 R.id.radio_female ->
                     if (checked) {
-                        jenisKelamin = "Perempuan"
+                        gender = "Perempuan"
                     }
             }
         }
@@ -88,13 +84,13 @@ class RegisterActivity : AppCompatActivity() {
 
         })
         binding.registerButton.setOnClickListener {
-            val nama_user = binding.nameEditText.text.toString()
+            val name = binding.nameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
-            val jenis_kelamin = jenisKelamin
+            val gender = gender
 
             when {
-                nama_user.isEmpty() -> {
+                name.isEmpty() -> {
                     binding.nameEditTextLayout.error = "Masukkan email"
                 }
                 email.isEmpty() -> {
@@ -103,11 +99,12 @@ class RegisterActivity : AppCompatActivity() {
                 password.isEmpty() -> {
                     binding.passwordEditTextLayout.error = "Masukkan password"
                 }
-                jenis_kelamin.isEmpty() -> {
+                gender.isEmpty() -> {
                     binding.jenisKelaminTextView.error = "Pilih salah satu"
                 }
                 else -> {
-                    ApiConfig.getApiService().register(nama_user, email, password, jenis_kelamin)
+                    showLoading(true)
+                    ApiConfig.getApiService().register(name, email, password, gender)
                         .enqueue(object: Callback<GeneralResponse> {
                             override fun onFailure(call: Call<GeneralResponse>, t: Throwable) {
 //                                binding.pbSignup.visibility = View.INVISIBLE
@@ -118,14 +115,16 @@ class RegisterActivity : AppCompatActivity() {
                                 response: Response<GeneralResponse>
                             ) {
                                 if (response.code() == 200) {
+                                    showLoading(false)
 //                                    binding.pbSignup.visibility = View.INVISIBLE
-                                    Toast.makeText(applicationContext, ("user_created"), Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(applicationContext, ("User Created, Silahkan login kembali"), Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 } else {
+                                    showLoading(false)
 //                                    binding.pbSignup.visibility = View.INVISIBLE
-                                    Toast.makeText(applicationContext, ("invalid_input"), Toast.LENGTH_SHORT).show()
+                                    Toast.makeText(applicationContext, ("Invalid Input, Cek kembali data anda"), Toast.LENGTH_SHORT).show()
                                 }
                             }
 
@@ -135,7 +134,9 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
 
     private fun playAnimation() {
         val title = ObjectAnimator.ofFloat(binding.titleTextView, View.ALPHA, 1f).setDuration(300)

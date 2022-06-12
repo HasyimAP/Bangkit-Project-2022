@@ -43,6 +43,12 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
+            android:name=".view.history.DetailHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.fitness.fitnessScan.ScanFitnessResultActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.fitness.DetailFitnessActivity"
             android:exported="false" />
         <activity
@@ -52,7 +58,7 @@
             android:name=".view.food.DetailFoodActivity"
             android:exported="false" />
         <activity
-            android:name=".view.food.ScanFoodActivity"
+            android:name=".view.food.foodScan.ScanFoodActivity"
             android:exported="false" />
         <activity
             android:name=".view.scanFavorite.ScanFavoriteActivity"
@@ -70,13 +76,13 @@
             android:exported="false"
             android:label="Food List" />
         <activity
-            android:name=".view.scanResult.ScanResultActivity"
-            android:exported="false"
-            android:label="Scan Result" />
-        <activity
-            android:name=".view.fitness.ScanFitnessActivity"
+            android:name=".view.food.foodScan.ScanFoodResultActivity"
             android:exported="false"
             android:label="Scan Food Ingredient" />
+        <activity
+            android:name=".view.fitness.fitnessScan.ScanFitnessActivity"
+            android:exported="false"
+            android:label="Scan Exercise Name" />
         <activity
             android:name=".view.register.RegisterActivity"
             android:exported="false" />

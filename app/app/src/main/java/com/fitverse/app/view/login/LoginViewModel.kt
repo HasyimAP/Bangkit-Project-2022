@@ -12,7 +12,7 @@ class LoginViewModel(private val pref: UserPreference) : ViewModel() {
 
     fun saveUser(user: UserModel) {
         viewModelScope.launch {
-            pref.saveUser(UserModel(user.id_user, user.email, user.pass, user.nama_user, user.jenis_kelamin, user.isLogin))
+            pref.saveUser(UserModel(user.id, user.name, user.token, user.isLogin))
         }
     }
     fun getUser(): LiveData<UserModel> {

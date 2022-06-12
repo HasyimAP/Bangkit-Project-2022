@@ -5,56 +5,67 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.fitverse.app.R
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.fitverse.app.database.FavoriteFoodEntity
+import com.fitverse.app.databinding.FragmentFoodFavBinding
+import com.fitverse.app.model.FoodModel
+import com.fitverse.app.view.food.AdapterFood
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [FoodFavFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class FoodFavFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentFoodFavBinding? = null
+    private lateinit var adapterFavFood: AdapterFood
+    private lateinit var favoriteFoodViewModel: FavoriteFoodViewModel
+    val bundle = arguments
 
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food_fav, container, false)
+        _binding = FragmentFoodFavBinding.inflate(inflater, container, false)
+
+        adapterFavFood = AdapterFood()
+        adapterFavFood.notifyDataSetChanged()
+        favoriteFoodViewModel = ViewModelProvider(this)[FavoriteFoodViewModel::class.java]
+
+        binding.apply {
+            recyleView.layoutManager = LinearLayoutManager(activity)
+            recyleView.setHasFixedSize(true)
+            recyleView.adapter = adapterFavFood
+
+        }
+        favoriteFoodViewModel.getFavorite()?.observe(viewLifecycleOwner) {
+            if (it != null) {
+
+                val listFavorite = mapList(it)
+                adapterFavFood.setList(listFavorite)
+            }
+        }
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FoodFavFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FoodFavFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun mapList(users: List<FavoriteFoodEntity>): ArrayList<FoodModel> {
+        val listUsers = ArrayList<FoodModel>()
+        for (user in users) {
+            val userMap = FoodModel(
+                user.id,
+                user.name,
+                user.photoUrl,
+                user.description
+            )
+            listUsers.add(userMap)
+        }
+        return listUsers
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.apply {
+        }
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
