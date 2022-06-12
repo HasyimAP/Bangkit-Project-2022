@@ -1,23 +1,23 @@
-Ceker Ayam
-Dada Ayam
-Jambu Air
+Ceker_Ayam
+Dada_Ayam
+Jambu_Air
 Jeruk
-Kulit Ayam
-Paha Bawah
+Kulit_Ayam
+Paha_Bawah
 Pepaya
 Pisang
-Potato White
+Potato_White
 Semangka
 Alpukat
 Anggur
 Apel
-Buah Naga
+Buah_Naga
 Cashew
 Jagung
 Kelapa
 Mangga
-Nasi merah
-Nasi Putih
+Nasi_merah
+Nasi_Putih
 Pea
 Peanut
 Pir

@@ -43,9 +43,6 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="n">
         <activity
-            android:name=".view.history.DetailHistoryActivity"
-            android:exported="false" />
-        <activity
             android:name=".view.fitness.fitnessScan.ScanFitnessResultActivity"
             android:exported="false" />
         <activity
@@ -62,7 +59,8 @@
             android:exported="false" />
         <activity
             android:name=".view.scanFavorite.ScanFavoriteActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Favorite Scan"/>
         <activity
             android:name=".view.settings.SettingsActivity"
             android:exported="false"

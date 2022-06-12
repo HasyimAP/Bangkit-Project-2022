@@ -18,7 +18,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-
 class ScanFoodResultActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFoodResultBinding
     private lateinit var viewModel: ScanFoodResultViewModel
@@ -42,17 +41,17 @@ class ScanFoodResultActivity : AppCompatActivity() {
 
         if (name != null) {
             viewModel.getUser().observe(this) { user ->
-                    viewModel.setFoodDetail(user.token,name)
+                viewModel.setFoodDetail(user.token,name)
             }
             Toast.makeText(this, "${name}", Toast.LENGTH_SHORT).show()
         }
         showLoading(true)
         viewModel.getFoodDetail().observe(this) {
             showLoading(false)
-            var name1 = it.name
-            var desc = it.description
-            var id1 = it.id
-            var foto = it.photoUrl
+            var nameFood = it.name
+            var descFood = it.description
+            var idFood = it.id
+            var fotoFood = it.photoUrl
             binding.apply {
                 resultname.text = it.name
                 description.text = it.description.replace("\\n","\n")
@@ -76,16 +75,16 @@ class ScanFoodResultActivity : AppCompatActivity() {
                     }
                 }
             }
-            recentFoodViewModel.addRecentFood(id1, name1,foto,desc )
+            recentFoodViewModel.addRecentFood(idFood, nameFood,fotoFood,descFood )
 
             binding.toggleFavorite.setOnClickListener {
                 isChecked = !isChecked
                 if (isChecked) {
-                    favoriteFoodViewModel.addToFavorite(id1, name1,foto,desc )
-                    Toast.makeText(this, "Add $name1 to Favorite", Toast.LENGTH_LONG).show()
+                    favoriteFoodViewModel.addToFavorite(idFood, nameFood,fotoFood,descFood )
+                    Toast.makeText(this, "Add $nameFood to Favorite", Toast.LENGTH_LONG).show()
                 } else {
-                    favoriteFoodViewModel.deleteFromFavorite(id1)
-                    Toast.makeText(this, "Remove $name1 from Favorite", Toast.LENGTH_LONG).show()
+                    favoriteFoodViewModel.deleteFromFavorite(idFood)
+                    Toast.makeText(this, "Remove $nameFood from Favorite", Toast.LENGTH_LONG).show()
                 }
                 binding.toggleFavorite.isChecked = isChecked
             }

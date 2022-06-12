@@ -30,7 +30,7 @@ class ScanFitnessResultActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val name = intent.getStringExtra("result")
+        val name = intent.getStringExtra("result_fitness")
 
         viewModel = ViewModelProvider(
             this,
@@ -42,20 +42,19 @@ class ScanFitnessResultActivity : AppCompatActivity() {
             viewModel.getUser().observe(this) { user ->
                 viewModel.setFitnessDetail(user.token,name)
             }
-
             Toast.makeText(this, "${name}", Toast.LENGTH_SHORT).show()
         }
         showLoading(true)
         viewModel.getFitnessDetail().observe(this) {
             showLoading(false)
-            var name1 = it.name
-            var desc = it.description
-            var id1 = it.id
-            var foto = it.photoUrl
+            var nameFitness = it.name
+            var descFitness = it.description
+            var idFitness = it.id
+            var fotoFitness = it.photoUrl
 
             binding.apply {
                 fitnessName.text = it.name
-                description.text = it.description.replace("\\n","\n")
+                description.text = it.description
                 Glide.with(this@ScanFitnessResultActivity)
                     .load(it.photoUrl)
                     .transition(DrawableTransitionOptions.withCrossFade())
@@ -76,25 +75,21 @@ class ScanFitnessResultActivity : AppCompatActivity() {
                     }
                 }
             }
-            recentFitnessViewModel.addRecentFitness(id1, name1,foto,desc )
+            recentFitnessViewModel.addRecentFitness(idFitness, nameFitness,fotoFitness,descFitness )
 
             binding.toggleFavorite.setOnClickListener {
                 isChecked = !isChecked
                 if (isChecked) {
-                    favoriteFitnessViewModel.addToFavorite(id1, name1,foto,desc )
-                    Toast.makeText(this, "Add $name1 to Favorite", Toast.LENGTH_LONG).show()
+                    favoriteFitnessViewModel.addToFavorite(idFitness, nameFitness,fotoFitness,descFitness )
+                    Toast.makeText(this, "Add $nameFitness to Favorite", Toast.LENGTH_LONG).show()
                 } else {
-                    favoriteFitnessViewModel.deleteFromFavorite(id1)
-                    Toast.makeText(this, "Remove $name1 from Favorite", Toast.LENGTH_LONG).show()
+                    favoriteFitnessViewModel.deleteFromFavorite(idFitness)
+                    Toast.makeText(this, "Remove $nameFitness from Favorite", Toast.LENGTH_LONG).show()
                 }
                 binding.toggleFavorite.isChecked = isChecked
             }
         }
-
-
-
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()

@@ -116,14 +116,14 @@ class ScanFitnessActivity : AppCompatActivity() {
             val classes = application.assets.open("fitness_label.txt").bufferedReader().use { it.readText() }.split("\n")
 
             // Test pemindahan data sederhana (nama dan list akurasi)
-            val hasilScan = classes[maxPos]
+            val hasilScanFitness = classes[maxPos]
             val listAkurasi = String.format("%s: %.9f%%\n" + "%s: %.9f%%\n" + "%s: %.9f%%\n",
                 classes[maxPos], confidences[maxPos] * 100,
                 classes[maxPos2], confidences[maxPos2] * 100,
                 classes[maxPos3], confidences[maxPos3] * 100)
 
             val intent = Intent(this@ScanFitnessActivity, ScanFitnessResultActivity::class.java)
-            intent.putExtra("result", hasilScan)
+            intent.putExtra("result_fitness", hasilScanFitness)
             intent.putExtra("list_akurasi", listAkurasi)
             startActivity(intent)
 

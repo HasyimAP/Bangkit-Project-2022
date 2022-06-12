@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    android:orientation="vertical">
 
     <LinearLayout
+        style="@style/blueTheme"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/blueTheme"
         android:orientation="vertical"
-        android:paddingVertical="15dp"
-        >
+        android:paddingVertical="15dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,34 +22,34 @@
 
             <ImageView
                 android:id="@+id/avatar"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp"
-                app:srcCompat="@drawable/ic_profile"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
                 android:contentDescription="@string/avatar"
+                app:srcCompat="@drawable/ic_profile"
                 app:tint="@color/white" />
 
             <TextView
                 android:id="@+id/nama"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
                 android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
                 android:text="@string/nama"
                 android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold" />
         </LinearLayout>
-
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:layout_marginHorizontal="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -62,8 +60,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/scan_food_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -74,9 +72,9 @@
                         android:id="@+id/food_news"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/scan_food_ingredient"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/food_scan"
-                        android:contentDescription="@string/scan_food_ingredient" />
+                        app:srcCompat="@drawable/food_scan" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -99,8 +97,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/food_list_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -111,9 +109,9 @@
                         android:id="@+id/food_list"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/scan_food_ingredient"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/food_list"
-                        android:contentDescription="@string/scan_food_ingredient" />
+                        app:srcCompat="@drawable/food_list" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -136,8 +134,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/food_news_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -148,9 +146,9 @@
                         android:id="@+id/food_scan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/food_list"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/food_news"
-                        android:contentDescription="@string/food_list" />
+                        app:srcCompat="@drawable/food_news" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -172,7 +170,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:layout_marginHorizontal="20dp"
             android:gravity="center"
             android:orientation="horizontal">
 
@@ -183,8 +180,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/scan_fitness_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -195,9 +192,9 @@
                         android:id="@+id/fitness_scan"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/scan_fitness_motion"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/fitness_scan"
-                        android:contentDescription="@string/scan_fitness_motion" />
+                        app:srcCompat="@drawable/fitness_scan" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -221,8 +218,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/exercise_list_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -233,9 +230,9 @@
                         android:id="@+id/exercise_list"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/exercise_list"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/exercise_list"
-                        android:contentDescription="@string/exercise_list" />
+                        app:srcCompat="@drawable/exercise_list" />
 
                 </androidx.cardview.widget.CardView>
 
@@ -258,8 +255,8 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fitness_news_button"
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
                     app:cardBackgroundColor="@color/white"
@@ -270,9 +267,9 @@
                         android:id="@+id/fitness_news"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:contentDescription="@string/fitness_news"
                         android:padding="10dp"
-                        app:srcCompat="@drawable/fitness_news"
-                        android:contentDescription="@string/fitness_news" />
+                        app:srcCompat="@drawable/fitness_news" />
 
                 </androidx.cardview.widget.CardView>
 
