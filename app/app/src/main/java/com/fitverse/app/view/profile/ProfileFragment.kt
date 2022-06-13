@@ -34,9 +34,6 @@ class ProfileFragment : Fragment() {
             profileViewModel.getUser().observe(requireActivity()) { user ->
                 nama.text = user.name
             }
-//            outButton.setOnClickListener {
-//                profileViewModel.logout()
-//            }
         }
 
         return binding.root

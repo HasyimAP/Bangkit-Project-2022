@@ -12,7 +12,6 @@ import com.fitverse.app.databinding.FragmentFitnesFavBinding
 import com.fitverse.app.model.FitnessModel
 import com.fitverse.app.view.fitness.AdapterFitness
 
-
 class FitnesFavFragment : Fragment() {
 
     private var _binding: FragmentFitnesFavBinding? = null

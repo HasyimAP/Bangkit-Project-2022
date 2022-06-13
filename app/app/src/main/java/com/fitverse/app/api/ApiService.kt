@@ -4,9 +4,6 @@ import com.fitverse.app.response.*
 import retrofit2.Call
 import retrofit2.http.*
 
-//val pref = UserPreference
-//val token = "Authorization : token ${pref.token}"
-
 interface ApiService {
     @POST("register")
     fun register(

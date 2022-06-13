@@ -113,9 +113,9 @@ class ScanFitnessActivity : AppCompatActivity() {
                 }
             }
 
-            val classes = application.assets.open("fitness_label.txt").bufferedReader().use { it.readText() }.split("\n")
+            val classes = application.assets.open("fitness_label.txt").bufferedReader().use { it.readLines() }
 
-            // Test pemindahan data sederhana (nama dan list akurasi)
+            // pemindahan data sederhana (nama dan list akurasi)
             val hasilScanFitness = classes[maxPos]
             val listAkurasi = String.format("%s: %.9f%%\n" + "%s: %.9f%%\n" + "%s: %.9f%%\n",
                 classes[maxPos], confidences[maxPos] * 100,

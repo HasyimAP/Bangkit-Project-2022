@@ -22,7 +22,6 @@ import java.nio.ByteBuffer
 import java.nio.ByteOrder
 import kotlin.math.min
 
-
 class ScanFoodActivity : AppCompatActivity() {
     private lateinit var binding: ActivityScanFoodBinding
     private var imageSize = 128
@@ -113,9 +112,9 @@ class ScanFoodActivity : AppCompatActivity() {
                 }
             }
 
-            val classes = application.assets.open("food_label.txt").bufferedReader().use { it.readText() }.split("\n")
+            val classes = application.assets.open("food_label.txt").bufferedReader().use { it.readLines() }
 
-            // Test pemindahan data sederhana (nama dan list akurasi)
+            // pemindahan data sederhana (nama dan list akurasi)
             val hasilScan = classes[maxPos]
             val listAkurasi = String.format("%s: %.9f%%\n" + "%s: %.9f%%\n" + "%s: %.9f%%\n",
                 classes[maxPos], confidences[maxPos] * 100,

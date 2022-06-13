@@ -44,7 +44,7 @@ class AdapterRecentFitness  : RecyclerView.Adapter<AdapterRecentFitness.StoryVie
 
                 itemView.setOnClickListener {
                     val intent = Intent(itemView.context, DetailFitnessActivity::class.java)
-                    intent.putExtra("ListStoryModel", items)
+                    intent.putExtra("ListFitnessModel", items)
 
                     val optionsCompat: ActivityOptionsCompat =
                         ActivityOptionsCompat.makeSceneTransitionAnimation(

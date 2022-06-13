@@ -13,9 +13,7 @@ import com.fitverse.app.databinding.ActivityDetailFoodBinding
 import com.fitverse.app.model.FoodModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.fitness.dataStore
-import com.fitverse.app.view.fitness.fitnessScan.ScanFitnessResultViewModel
 import com.fitverse.app.view.food.foodScan.ScanFoodResultViewModel
-import com.fitverse.app.view.scanFavorite.FavoriteFitnessViewModel
 import com.fitverse.app.view.scanFavorite.FavoriteFoodViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -49,9 +47,7 @@ class DetailFoodActivity : AppCompatActivity() {
         viewModel.getUser().observe(this) { user ->
             viewModel.setFoodDetail(user.token, listFoodModel.name)
         }
-//        showLoading(true)
         viewModel.getFoodDetail().observe(this) {
-//            showLoading(false)
             val name1 = it.name
             val desc1 = it.description
             val id1 = it.id

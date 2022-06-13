@@ -1,8 +1,6 @@
 package com.fitverse.app.view.scanFavorite
 
 import android.app.Application
-import android.content.ContentValues
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,9 +11,6 @@ import com.fitverse.app.model.FitnessModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class FavoriteFitnessViewModel(application: Application) : AndroidViewModel(application) {
         val user = MutableLiveData<FitnessModel>()

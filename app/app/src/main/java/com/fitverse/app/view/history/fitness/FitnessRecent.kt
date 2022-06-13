@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.fitverse.app.database.RecentFitnessEntity
 import com.fitverse.app.databinding.FragmentFitnessRecentBinding
 import com.fitverse.app.model.FitnessModel
-import com.fitverse.app.view.fitness.AdapterFitness
 
 class FitnessRecent : Fragment() {
 
@@ -46,18 +45,18 @@ class FitnessRecent : Fragment() {
         return binding.root
     }
 
-    private fun mapList(users: List<RecentFitnessEntity>): ArrayList<FitnessModel> {
-        val listUsers = ArrayList<FitnessModel>()
-        for (user in users) {
-            val userMap = FitnessModel(
-                user.id,
-                user.name,
-                user.photoUrl,
-                user.description
+    private fun mapList(fitness: List<RecentFitnessEntity>): ArrayList<FitnessModel> {
+        val listFitness = ArrayList<FitnessModel>()
+        for (fit in fitness) {
+            val fitnessMap = FitnessModel(
+                fit.id,
+                fit.name,
+                fit.photoUrl,
+                fit.description
             )
-            listUsers.add(userMap)
+            listFitness.add(fitnessMap)
         }
-        return listUsers
+        return listFitness
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

@@ -1,6 +1,5 @@
 package com.fitverse.app.model
 
-import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.booleanPreferencesKey
@@ -8,30 +7,6 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-
-
-//class UserPreference constructor(context: Context) {
-//    private val pref = context.getSharedPreferences("pref", Context.MODE)
-//    private val userToken = "Token"
-//    private val userIsLogin = "isLogin"
-//
-//    var token: String
-//        set(value) {
-//            pref.edit()
-//                .putString(userToken, value)
-//                .apply()
-//        }
-//        get() = pref.getString(userToken, "").toString()
-//
-//    var isLogin: Boolean
-//        set(value) {
-//            pref.edit()
-//                .putBoolean(userIsLogin, value)
-//                .apply()
-//        }
-//        get() = pref.getBoolean(userIsLogin, false)
-//}
-
 
 class UserPreference private constructor(private val dataStore: DataStore<Preferences>) {
     private val THEME_KEY = booleanPreferencesKey("theme_setting")

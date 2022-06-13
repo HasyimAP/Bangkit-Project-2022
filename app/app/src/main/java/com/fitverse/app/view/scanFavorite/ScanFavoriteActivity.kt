@@ -22,8 +22,6 @@ class ScanFavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_scan_favorite)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-//        val bundle = Bundle()
-//        bundle.putString(MainActivity.EXT_USERNAME, username)
 
         val sectionsPagerAdapter = SectionsPagerAdapter(this)
         val viewPager: ViewPager2 = findViewById(R.id.view_pager)

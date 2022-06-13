@@ -5,7 +5,6 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.fitverse.app.database.FavoriteDatabase
-import com.fitverse.app.database.FavoriteFoodEntity
 import com.fitverse.app.database.FavoriteUserDao
 import com.fitverse.app.database.RecentFoodEntity
 import com.fitverse.app.model.FoodModel

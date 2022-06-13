@@ -8,7 +8,6 @@ import com.fitverse.app.model.FoodModel
 import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.FoodDetailResponse
-import com.fitverse.app.response.ListFoodResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

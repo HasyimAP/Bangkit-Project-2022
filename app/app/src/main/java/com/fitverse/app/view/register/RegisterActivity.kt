@@ -116,14 +116,12 @@ class RegisterActivity : AppCompatActivity() {
                             ) {
                                 if (response.code() == 200) {
                                     showLoading(false)
-//                                    binding.pbSignup.visibility = View.INVISIBLE
                                     Toast.makeText(applicationContext, ("User Created, Silahkan login kembali"), Toast.LENGTH_SHORT).show()
                                     val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 } else {
                                     showLoading(false)
-//                                    binding.pbSignup.visibility = View.INVISIBLE
                                     Toast.makeText(applicationContext, ("Invalid Input, Cek kembali data anda"), Toast.LENGTH_SHORT).show()
                                 }
                             }

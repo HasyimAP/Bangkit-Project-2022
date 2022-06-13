@@ -16,7 +16,7 @@ Cashew
 Jagung
 Kelapa
 Mangga
-Nasi_merah
+Nasi_Merah
 Nasi_Putih
 Pea
 Peanut

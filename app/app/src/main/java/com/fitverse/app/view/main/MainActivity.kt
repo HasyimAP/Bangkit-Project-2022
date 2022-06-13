@@ -20,7 +20,6 @@ import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityMainBinding
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.login.LoginActivity
-import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.settings.SettingsActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
 

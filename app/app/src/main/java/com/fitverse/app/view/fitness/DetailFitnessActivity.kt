@@ -11,7 +11,6 @@ import com.fitverse.app.view.scanFavorite.FavoriteFitnessViewModel
 import com.fitverse.app.R
 import com.fitverse.app.ViewModelFactory
 import com.fitverse.app.databinding.ActivityDetailFitnessBinding
-
 import com.fitverse.app.model.FitnessModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.view.fitness.fitnessScan.ScanFitnessResultViewModel
@@ -48,9 +47,7 @@ class DetailFitnessActivity : AppCompatActivity() {
                 viewModel.setFitnessDetail(user.token, listFitnessModel.name)
             }
         }
-//        showLoading(true)
         viewModel.getFitnessDetail().observe(this) {
-//            showLoading(false)
             var name1 = it.name
             var desc1 = it.description
             var id1 = it.id

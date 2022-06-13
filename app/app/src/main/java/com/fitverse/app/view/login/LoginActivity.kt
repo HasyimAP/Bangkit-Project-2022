@@ -22,7 +22,6 @@ import com.fitverse.app.model.UserModel
 import com.fitverse.app.model.UserPreference
 import com.fitverse.app.response.LoginResponse
 import com.fitverse.app.view.main.MainActivity
-import com.fitverse.app.view.profile.ProfileFragment
 import com.fitverse.app.view.register.RegisterActivity
 import retrofit2.Call
 import retrofit2.Callback

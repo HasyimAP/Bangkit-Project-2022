@@ -11,7 +11,6 @@ import com.fitverse.app.view.login.LoginViewModel
 import com.fitverse.app.view.main.MainViewModel
 import com.fitverse.app.view.profile.ProfileViewModel
 
-
 class ViewModelFactory(private val pref: UserPreference) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
