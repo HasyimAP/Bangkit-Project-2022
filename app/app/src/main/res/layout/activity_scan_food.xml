@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.food.foodScan.ScanFoodActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="370sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="10sp"
+        android:layout_marginTop="10sp"
+        android:background="@drawable/ic_photo"
+        android:backgroundTint="@color/gray"
+        android:contentDescription="@string/photo" />
+
+    <TextView
+        android:id="@+id/classified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10sp"
+        android:text="@string/classified_as"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text=""
+        android:textColor="@color/hijau"
+        android:textStyle="bold"
+        android:textSize="27sp"
+        android:id="@+id/result"
+        android:layout_below="@+id/classified"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/result"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom|center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button_camera"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/biru_muda"
+            android:drawableTop="@drawable/ic_camera"
+            android:padding="30dp"
+            android:text="@string/camera"
+            android:textAllCaps="false"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/button_gallery"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/hijau"
+            android:drawableTop="@drawable/ic_gallery"
+            android:padding="30dp"
+            android:text="@string/gallery"
+            android:textAllCaps="false"
+            android:textSize="21sp"
+            android:textStyle="bold"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+</RelativeLayout>

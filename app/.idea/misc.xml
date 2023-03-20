@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable-v24/ic_search.xml" value="0.237" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_baseline_collections_bookmark_24.xml" value="0.2395" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_bookmark.xml" value="0.1175" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_bookmark_border.xml" value="0.1" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_collections_bookmark.xml" value="0.1915" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1415" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/drawable/save_scan.xml" value="0.2395" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_coming_soon.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_dashboard.xml" value="0.25263157894736843" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_detail_food.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_food_list.xml" value="0.4" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main2.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_favorite.xml" value="0.176" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food.xml" value="0.264" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_result.xml" value="0.2" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/activity_settings.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_fitness.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_fitness_fav.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_food.xml" value="0.2037037037037037" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_food_fav.xml" value="0.11302083333333333" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_history.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/layout/item_list.xml" value="0.4" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
+        <entry key="..\:/KMEG/Semester VI/Last/Bangkit-Project-2022/app/app/src/main/res/menu/setting.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable-v24/round_corners_frame.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_camera.xml" value="0.1155" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.104" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_gallery.xml" value="0.1155" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_history.xml" value="0.104" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_home.xml" value="0.104" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_photo.xml" value="0.1225" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/ic_profile.xml" value="0.104" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/drawable/save_scan.xml" value="0.1235" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_coming_soon.xml" value="0.190625" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_dashboard.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_detail_fitness.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_detail_food.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_detail_history.xml" value="0.10773834972210346" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_fitness_list.xml" value="0.12" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_food_list.xml" value="0.22685185185185186" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_login.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_main.xml" value="0.16799999999999998" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_register.xml" value="0.10643115942028986" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_favorite.xml" value="0.10773834972210346" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_fitness.xml" value="0.1569046601111586" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_fitness_result.xml" value="0.18127404873877725" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food.xml" value="0.16" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_food_result.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/activity_scan_result.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fitness_list.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fitness_result_adapter.xml" value="0.18127404873877725" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/food_list.xml" value="0.1410859341598974" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/food_result_adapter.xml" value="0.16417272338606242" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_dashboard.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_fitnes_fav.xml" value="0.10773834972210346" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_fitness_recent.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_food_fav.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_food_recent.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_history.xml" value="0.15416666666666667" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/fragment_profile.xml" value="0.15416666666666667" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/item_list.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/recent_fitness_adapter.xml" value="0.1410859341598974" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/layout/recent_food_adapter.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu-v26/bottom_nav_menu.xml" value="0.15416666666666667" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu/bottom_nav_menu.xml" value="0.18541666666666667" />
+        <entry key="..\:/Users/ASUS/Documents/GitHub/Bangkit-Project-2022/app/app/src/main/res/menu/setting.xml" value="0.175" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
